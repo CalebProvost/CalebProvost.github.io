@@ -1,0 +1,339 @@
+/*//////////////////////////////////////////////////////////////////////////////////////////////*/
+/*//////////////////////////////// Landing Page's Base Styles //////////////////////////////////*/
+/*//////////////////////////////////////////////////////////////////////////////////////////////*/
+
+.hidden { 
+    display: none; 
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.MainHeader {
+    background-color: dimgray;
+}
+
+/*Wraps SiteTitle and HeadNav*/
+.HeaderWrapper {
+    display: flex;
+    width: 85%;
+    margin: 0 auto;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.SiteTitle {
+    align-self: center;
+    font-size: 28px;
+}
+
+/*Wraps HeadNav into horizontal flex*/
+.HeadNav {
+    padding: 1.5em 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.HeadNav li {
+    display: flex;
+    list-style: none;
+    text-align: center;
+    background-color: white;
+    padding: 5px 12.5px;
+    margin: 3.5px;
+}
+
+/*Set the size of the main content to not touch the sides*/
+.MainContent {
+    /*width: 85%;
+    height: 100%;
+    margin: 0 auto;*/
+    flex: 1 0 auto;
+    
+}
+
+/*Wrapper for 3 expandable columns*/
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-around;
+    
+}
+
+/*Each column with its content*/
+.HardwareSegment,
+.ProjectsSegment,
+.SoftwareSegment {
+    /*keeps flex item its size of the content, 
+    **but places it to the top
+    margin-bottom: auto;*/
+
+    padding: 1%;
+    
+    /*justifies flex item to the top "start"
+    **but also stretchs flex item to match others*/
+    justify-content: flex-start;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+/*Backup of working layout*/
+/*    .HardwareSegment,
+.ProjectsSegment,
+.SoftwareSegment {
+    margin-bottom: auto;
+    padding: 1%;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}*/
+
+.HardwareSegment h2,
+.ProjectsSegment h2,
+.SoftwareSegment h2 {
+    text-align: center;
+    flex-direction: column;
+}
+
+.SoftwareColumn,
+.ProjectsColumn,
+.HardwareColumn {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.ProjectsColumn,
+.HardwareColumn {
+    flex-direction: column;
+}
+
+.SoftwareColumn div {
+    padding: 5px;
+    display: inline-flex;
+    flex-grow: 1;
+    flex-basis: 30%;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+}
+
+/*Not sure I like the look of centered 
+**with uncentered links below
+.SoftwareColumn h3 {
+    text-align: center;
+}*/
+
+/*Old Footer styles*/
+.MainFooter {
+    display: flex;
+    flex-shrink: 0;
+    padding: 1em 0;
+    background: dimgray;
+    
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.MainFooter a {
+    
+    flex-grow: 1;
+    text-align: center;
+}
+
+img {
+    width: 100%;
+    display: block;
+    max-width: 23rem;
+    max-height: 23rem;
+    height: auto;
+    align-self: center;
+}
+
+.SoftwareSegment img {
+    max-width: 28rem;
+    max-height: 28rem; 
+}
+
+.Column h2 {
+    text-align: center;
+}
+
+.Column p {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.SmallDeviceMessage {
+    display: none;
+}
+
+/*//////////////////////////////////////////////////////////////////////////////////////////////*/
+/*///////////////////////////////////// Anamated Styles ////////////////////////////////////////*/
+/*//////////////////////////////////////////////////////////////////////////////////////////////*/
+
+/************************************************************************************************/
+/* CSS to cause transition look */
+/************************************************************************************************/
+.icon, .icon:before, 
+.icon:after, .icon i, 
+.icon i:before, 
+.icon i:after {
+    transition: all 0.4s ease;
+  }
+
+.collapseicon, .collapseicon:before, 
+.collapseicon:after, .collapseicon i, 
+.collapseicon i:before, 
+.collapseicon i:after {
+    transition: all 0.4s ease;
+  }
+
+/************************************************************************************************/
+/* Encapsulate Icon in order to make it keep its style regardless of inline/surrounding elements*/
+/************************************************************************************************/
+.HeaderWrapper {
+    display: flex;
+}
+
+.iconShell {
+    height: 18px;
+    list-style: none;
+    text-align: center;
+    background-color: white;
+    padding: 5px 14px;
+    margin: 3.5px;
+}
+
+/************************************************************************************************/
+/* Expand Menu Icon */
+/************************************************************************************************/
+    .icon {
+        color: #000;
+        position: absolute;
+        margin-left: -8px;
+        margin-top: 8px;
+        width: 17px;
+        height: 2px;
+        background-color: currentColor;
+      }
+      
+      .icon:before {
+        content: '';
+        position: absolute;
+        top: -5px;
+        left: 0;
+        width: 17px;
+        height: 2px;
+        background-color: currentColor;
+      }
+      
+      .icon:after {
+        content: '';
+        position: absolute;
+        top: 5px;
+        left: 0;
+        width: 17px;
+        height: 2px;
+        background-color: currentColor;
+      }
+
+/************************************************************************************************/
+/* Collapse Menu Icon */
+/************************************************************************************************/
+.collapseicon {
+        color: #000;
+        position: absolute;
+        margin-left: -8px;
+        margin-top: 2px;
+        width: 16px;
+        height: 4px;
+        border-radius: 0 3px 3px 0;
+        border-top: solid 2px currentColor;
+        border-bottom: solid 2px currentColor;
+        border-right: solid 2px currentColor;
+    }
+
+    .collapseicon:before {
+        content: '';
+        position: absolute;
+        top: 9px;
+        left: 0px;
+        width: 17px;
+        height: 2px;
+        background-color: currentColor;
+    }
+
+    .collapseicon:after {
+        content: '';
+        position: absolute;
+        top: 1px;
+        left: -2px;
+        border-left: solid 4px white;
+        border-right: solid 4px currentColor;
+        border-top: solid 4px white;
+        border-bottom: solid 4px white;
+    }
+
+/*//////////////////////////////////////////////////////////////////////////////////////////////*/
+/*//////////////////////////////////// Conditional Styes ///////////////////////////////////////*/
+/*//////////////////////////////////////////////////////////////////////////////////////////////*/
+
+/************************************************************************************************/
+/*Large Screens / Laptops, Monitors, 4K+ */
+/************************************************************************************************/
+
+@media(min-width: 1400px){
+
+}
+
+
+
+/************************************************************************************************/
+/*Medium Screens / Tablets*/
+/************************************************************************************************/
+
+@media(max-width: 1400px){
+
+}
+
+
+
+/************************************************************************************************/
+/*Small Screens / Handheld Screens*/
+/************************************************************************************************/
+
+@media(max-width: 800px){
+
+}
+
+
+
+/************************************************************************************************/
+/*Screens too small to view will have styles cleared and message on page to be viewed over 400px*/
+/************************************************************************************************/
+
+@media(max-width: 200px) {
+    * {
+        background: white;
+    }
+
+    .SmallDeviceMessage {
+        display: inline-block;
+        text-align: center;
+        background-color: white;
+        font-size: 20px;
+    }
+
+    .MainHeader, .container, .HeadNav, 
+    .HeadNav li, .MainFooter, li, 
+    main, h1, a, img{
+        all: unset;
+        display: none;
+    }
+
+}
