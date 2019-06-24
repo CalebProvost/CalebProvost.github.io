@@ -7,9 +7,9 @@
     <title>Caleb Provost's Profile</title>
     <link rel="stylesheet" href="CSS/normalize.css">
     <link rel="stylesheet" href="CSS/styles.css">
-    <script src="JS/scripts.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 </head>
-<body>
+<body class="color2">
     <!--Message for small screens-->
     <div class="SmallDeviceMessage">congratulations!!!!!
             <br>You found an easteregg!</br>
@@ -17,20 +17,20 @@
 
     <!--Top Navagation Segment
         Collapsible Menu-->
-    <header class="MainHeader">
+    <header class="MainHeader color1">
 
         <!--Flexbox-->
         <div class="HeaderWrapper">
-            <h1 class="SiteTitle">CP</h1>
+            <h1 class="SiteTitle">Caleb Provost</h1>
             <ul class="HeadNav">
-                <li><a href="Practice Profile.html#Hardware">Hardware</a></li>
-                <li><a href="Practice Profile.html#Projects">Projects</a></li>
-                <li><a href="Practice Profile.html#Software">Software</a></li>
-                <li><a href="index.html#PersonalSnippets">Personal Snippets</a></li>
-                <li><a href="index.html#FrontEnd">Front End Dev</a></li>
-                <li><a href="index.html#BackEnd">Back End Dev</a></li>
+                <li class="navLinks"><a href="Practice Profile.html#Hardware">Hardware</a></li>
+                <li class="navLinks"><a href="Practice Profile.html#Projects">Projects</a></li>
+                <li class="navLinks"><a href="Practice Profile.html#Software">Software</a></li>
+                <li class="navLinks"><a href="index.html#PersonalSnippets">Personal Snippets</a></li>
+                <li class="navLinks"><a href="index.html#FrontEnd">Front End Dev</a></li>
+                <li class="navLinks"><a href="index.html#BackEnd">Back End Dev</a></li>
                 <div class="iconShell">
-                    <div id="MenuIcon" class="icon" onclick="menuAnimation()"></div>
+                    <div id="MenuIcon" class="icon" onclick="menuAnimation();"></div>
                 </div>
             </ul>
         </div>
@@ -39,11 +39,44 @@
         <!--Main Content Segment
         Three Piece Sections Influenced by JavaScript
         Place Personal Background Images to Meet Each Theme-->
-    <div class="MainContent">
-        <div class="container">
-
+    <div class="MainContent color2">
+        
+        <div class="container grid-container">
+            <!--Software Segment-->
+            <button class="collapsible color3">Software</button>
+            <div class="SoftwareSegment grid_item color3">
+                <h2>Software</h2>
+                <img class="ProfileImages" src="IMG\Generic Code.jpg" alt="Coding Image">
+                    <div class="SoftwareColumn">
+                        <div><h3 id="PersonalSnippets">Personal Snippets</h3>
+                            <ul><li><a href="GithubLink">My GitHub</a></li>
+                                <li><a href="Programs">My Programs</a></li></ul></div>
+                        <div><h3 id="FrontEnd">Front End</a></h3>
+                            <ul><li><a href="ColorGame.html">HueHueHue Game!</a>
+                                <li><a href="HTML">HTML</a></li>
+                                <li><a href="CSS">CSS</a></li>
+                                <li><a href="JavaScript">JavaScript</a></li></ul></div>
+                        <div><h3 id="BackEnd">Back End</a></h3>
+                            <ul><li><a href="Java">Java</a></li>
+                                <li><a href="CC++">C/C++</a></li></ul></div>
+                    </div>
+            </div>
+            
+            <!--Projects Segment-->
+            <button class="collapsible color4">Projects</button>
+            <div class="ProjectsSegment grid_item color4">
+                <h2>Projects</h2>
+                <img class="ProfileImages" src="IMG\Hardware Diagnosis.jpg" alt="Diagnosis Image">
+                    <div class="ProjectsColumn">
+                        <ul><a href="Catena">Catena</a></ul>
+                        <ul><a href="CARL">C.A.R.L</a></ul>
+                        <ul><a href="ideas">More to come</a></ul>
+                    </div>
+            </div>
+    
             <!--Hardware Segment-->
-            <div class="HardwareSegment">
+            <button class="collapsible color5">Hardware</button>
+            <div class="HardwareSegment grid_item color5">
                 <h2>Hardware</h2>
                 <img class="ProfileImages" src="IMG\Components on Board.jpg" alt="Hardware Image">
                     <div class="HardwareColumn">
@@ -55,40 +88,11 @@
                         <ul><a href="TestsnResults">Tests & Results</a></ul>
                     </div>
             </div>
-
-            <!--Projects Segment-->
-            <div class="ProjectsSegment">
-                <h2>Projects</h2>
-                <img class="ProfileImages" src="IMG\Hardware Diagnosis.jpg" alt="Diagnosis Image">
-                    <div class="ProjectsColumn">
-                        <ul><a href="Catena">Catena</a></ul>
-                        <ul><a href="CARL">C.A.R.L</a></ul>
-                        <ul><a href="ideas">More to come</a></ul>
-                    </div>
-            </div>
-
-            <!--Software Segment-->
-            <div class="SoftwareSegment">
-                <h2>Software</h2>
-                <img class="ProfileImages" src="IMG\Generic Code.jpg" alt="Coding Image">
-                    <div class="SoftwareColumn">
-                        <div><h3 id="PersonalSnippets">Personal Snippets</h3>
-                            <ul><li><a href="GithubLink">My GitHub</a></li>
-                                <li><a href="Programs">My Programs</a></li></ul></div>
-                        <div><h3 id="FrontEnd">Front End</a></h3>
-                            <ul><li><a href="HTML">HTML</a></li>
-                                <li><a href="CSS">CSS</a></li>
-                                <li><a href="JavaScript">JavaScript</a></li></ul></div>
-                        <div><h3 id="BackEnd">Back End</a></h3>
-                            <ul><li><a href="Java">Java</a></li>
-                                <li><a href="CC++">C/C++</a></li></ul></div>
-                    </div>
-            </div>
         </div>
     </div>
 
     <!--Forum segment for visitors to leave a message on page or directly to me-->
-    <fieldset class="feedbackForum">
+    <fieldset class="feedbackForum color6">
         <forum action="index.html" method="get">
             
             <label for="comment_purpose">
@@ -120,10 +124,11 @@
     </fieldset>
 
     <!--Footer to Contain Personal Culture/Interests-->
-    <footer class="MainFooter">
-        <a href="Blog">My Adventures</a>
-        <a href="Interests">Shared Interests</a>
-        <a href="Learnage">Lifelong Learner</a>
+    <footer class="MainFooter color1">
+        <li><a href="Blog">My Adventures</a></li>
+        <li><a href="Interests">Shared Interests</a></li>
+        <li><a href="Learnage">Lifelong Learner</a></li>
     </footer>
+    <script src="JS/scripts.js"></script>
 </body>
 </html>

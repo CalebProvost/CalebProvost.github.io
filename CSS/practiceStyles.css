@@ -1,0 +1,106 @@
+/*//////////////////////////////////////////////////////////////////////////////////////////////*/
+/*///////////////////////////////////// Anamated Styles ////////////////////////////////////////*/
+/*//////////////////////////////////////////////////////////////////////////////////////////////*/
+
+/************************************************************************************************/
+/* CSS to cause transition look */
+/************************************************************************************************/
+.icon, .icon:before, 
+.icon:after, .icon i, 
+.icon i:before, 
+.icon i:after {
+    transition: all 0.4s ease;
+  }
+
+.collapseicon, .collapseicon:before, 
+.collapseicon:after, .collapseicon i, 
+.collapseicon i:before, 
+.collapseicon i:after {
+    transition: all 0.4s ease;
+  }
+
+/************************************************************************************************/
+/* Encapsulate Icon in order to make it keep its style regardless of inline/surrounding elements*/
+/************************************************************************************************/
+.HeaderWrapper {
+    display: flex;
+}
+
+.iconShell {
+    height: 18px;
+    list-style: none;
+    text-align: center;
+    background-color: white;
+    padding: 5px 14px;
+    margin: 3.5px;
+}
+
+/************************************************************************************************/
+/* Expand Menu Icon */
+/************************************************************************************************/
+    .icon {
+        color: #000;
+        position: absolute;
+        margin-left: -8px;
+        margin-top: 8px;
+        width: 17px;
+        height: 2px;
+        background-color: currentColor;
+      }
+      
+      .icon:before {
+        content: '';
+        position: absolute;
+        top: -5px;
+        left: 0;
+        width: 17px;
+        height: 2px;
+        background-color: currentColor;
+      }
+      
+      .icon:after {
+        content: '';
+        position: absolute;
+        top: 5px;
+        left: 0;
+        width: 17px;
+        height: 2px;
+        background-color: currentColor;
+      }
+
+/************************************************************************************************/
+/* Collapse Menu Icon */
+/************************************************************************************************/
+.collapseicon {
+        color: #000;
+        position: absolute;
+        margin-left: -8px;
+        margin-top: 2px;
+        width: 16px;
+        height: 4px;
+        border-radius: 0 3px 3px 0;
+        border-top: solid 2px currentColor;
+        border-bottom: solid 2px currentColor;
+        border-right: solid 2px currentColor;
+    }
+
+    .collapseicon:before {
+        content: '';
+        position: absolute;
+        top: 9px;
+        left: 0px;
+        width: 17px;
+        height: 2px;
+        background-color: currentColor;
+    }
+
+    .collapseicon:after {
+        content: '';
+        position: absolute;
+        top: 1px;
+        left: -2px;
+        border-left: solid 4px white;
+        border-right: solid 4px currentColor;
+        border-top: solid 4px white;
+        border-bottom: solid 4px white;
+    }

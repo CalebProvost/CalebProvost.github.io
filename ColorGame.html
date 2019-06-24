@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HueHueHue Game!</title>
+    <link rel="stylesheet" href="CSS/normalize.css">
+    <link rel="stylesheet" href="CSS/colorGame.css">
+	<script src="JS/jquery.min.js"></script>
+</head>
+<body>
+    <header>
+        <div class="headWrapper">
+            <div class="gameMenu">
+                <forum action="index.html" method="get">
+                    <!--establishing predetermined difficulty-->
+                    <h2>Difficulty: </h2>
+                    <input type="button" value="EASY" id="easyDifficulty">
+                    <input type="button" value="MEDIUM" id="mediumDifficulty">
+                    <input type="button" value="HARD" id="hardDifficulty">
+
+                    <label for="customDifficulty">Custom Difficulty: 
+                    <input type="text" id="customDifficulty" value="20"></label>
+                    <input type="button" id="customButton" value="Start!">
+                </forum>
+            </div>
+            <div class="score">Score:</div>
+            <div class="Nav">Nav and Return Button will go here</div>
+        </div>
+    </header>
+    <div class="gameSegmentWrapper">
+        <div class="shell">
+            <table id="autoTable"></table>
+        </div>
+    </div>
+    <footer>
+        <div class="footWrapper">
+            <div class="gameRank">User's current rank will be displayed here</div>
+            <div class="siteFooter">Basic Site Footer will go here</div>
+        </div>
+    </footer>
+</body>
+<script src="JS/colorGame.js"></script>
+</html>

@@ -2,18 +2,35 @@
 /*//////////////////////////////// Landing Page's Base Styles //////////////////////////////////*/
 /*//////////////////////////////////////////////////////////////////////////////////////////////*/
 
-.hidden { 
-    display: none; 
+.color1, .color2 {
+    background-color: RGB(82,86,89);
+}
+
+.color3 {
+    background-color: #479761;
+}
+
+.color4 {
+    background-color: #CEBC81;
+}
+
+.color5 {
+    background-color: #A16E83;
+}
+
+.color6 {
+    display: none;
+    background-color: #B19F9E;
+}
+
+.hidden {
+    display: none;
 }
 
 body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-}
-
-.MainHeader {
-    background-color: dimgray;
 }
 
 /*Wraps SiteTitle and HeadNav*/
@@ -37,8 +54,8 @@ body {
     flex-wrap: wrap;
 }
 
-.HeadNav li {
-    display: flex;
+.HeadNav li,
+.MainFooter li {
     list-style: none;
     text-align: center;
     background-color: white;
@@ -46,13 +63,15 @@ body {
     margin: 3.5px;
 }
 
+.navLinks {
+    display: flex;
+}
+
 /*Set the size of the main content to not touch the sides*/
 .MainContent {
-    /*width: 85%;
+    width: 85%;
     height: 100%;
-    margin: 0 auto;*/
-    flex: 1 0 auto;
-    
+    margin: 0 auto;
 }
 
 /*Wrapper for 3 expandable columns*/
@@ -67,10 +86,6 @@ body {
 .HardwareSegment,
 .ProjectsSegment,
 .SoftwareSegment {
-    /*keeps flex item its size of the content, 
-    **but places it to the top
-    margin-bottom: auto;*/
-
     padding: 1%;
     
     /*justifies flex item to the top "start"
@@ -78,30 +93,19 @@ body {
     justify-content: flex-start;
     display: flex;
     flex-direction: column;
-    
 }
-
-/*Backup of working layout*/
-/*    .HardwareSegment,
-.ProjectsSegment,
-.SoftwareSegment {
-    margin-bottom: auto;
-    padding: 1%;
-    justify-content: center;
-    display: flex;
-    flex-direction: column;
-}*/
 
 .HardwareSegment h2,
 .ProjectsSegment h2,
 .SoftwareSegment h2 {
-    text-align: center;
+    text-align: right;
     flex-direction: column;
 }
 
 .SoftwareColumn,
 .ProjectsColumn,
 .HardwareColumn {
+    margin: 5%;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -122,25 +126,16 @@ body {
     align-items: center;
 }
 
-/*Not sure I like the look of centered 
-**with uncentered links below
-.SoftwareColumn h3 {
-    text-align: center;
-}*/
-
 /*Old Footer styles*/
 .MainFooter {
     display: flex;
     flex-shrink: 0;
     padding: 1em 0;
-    background: dimgray;
-    
     justify-content: center;
     flex-wrap: wrap;
 }
 
 .MainFooter a {
-    
     flex-grow: 1;
     text-align: center;
 }
@@ -169,6 +164,10 @@ img {
 }
 
 .SmallDeviceMessage {
+    display: none;
+}
+
+.collapsible {
     display: none;
 }
 
@@ -287,7 +286,12 @@ img {
 /*Large Screens / Laptops, Monitors, 4K+ */
 /************************************************************************************************/
 
-@media(min-width: 1400px){
+@media(min-width: 1482px){
+    .MainContent {
+        align-items: center;
+        justify-items: center;
+        flex: 1 0 auto;
+    }
 
 }
 
@@ -297,8 +301,63 @@ img {
 /*Medium Screens / Tablets*/
 /************************************************************************************************/
 
-@media(max-width: 1400px){
+@media (max-width: 1482px) and (min-width: 720px){
+    /*********************************************************/
+    /* 4x4 cascading grid with center content overlaping all */
+    /*       with mouse hover to bring content to front      */
+    /*********************************************************/
+    .grid-container {
+        display: grid;
+        justify-content: center;
+        align-content: center;
+        grid-template-columns: repeat(4, 25%);
+        grid-template-rows: repeat(4, 25%);
+    }
 
+    .SoftwareSegment {
+        grid-row: 1/3;
+        grid-column: 1/3;
+    }
+
+    .ProjectsSegment {
+        z-index: 5;  
+        grid-row: 2/4;
+        grid-column: 2/4;
+    }
+
+    .HardwareSegment {
+        grid-row: 3/5;
+        grid-column: 3/5;
+    }
+
+    .SoftwareSegment:hover {
+        transition-duration: 333ms;
+        transform: scale(1.35);
+        transform-origin: top left;
+        z-index: 10;
+    }
+
+    .ProjectsSegment:hover {
+        transition-duration: 333ms;
+        transform: scale(1.35);
+        z-index: 10;
+    }
+
+    .HardwareSegment:hover {
+        transition-duration: 333ms;
+        transform: scale(1.35);
+        transform-origin: bottom right;
+        z-index: 10;
+    }
+
+    .feedbackForum {
+        grid-row: 4/5;
+        grid-column: 1/3;
+    }
+
+    .MainContent {
+        flex-grow: 1;
+    }
 }
 
 
@@ -307,8 +366,58 @@ img {
 /*Small Screens / Handheld Screens*/
 /************************************************************************************************/
 
-@media(max-width: 800px){
+@media(max-width: 720px){
+    .MainContent {
+        width: 100%;
+        height: 100%;
+        margin: 0 auto;
+    }
 
+    .SoftwareSegment,
+    .ProjectsSegment,
+    .HardwareSegment {
+        display: flex;
+        flex-grow: 1;
+        align-items: center;
+    }
+
+    .collapsible {
+        display: block;
+        color: white;
+        cursor: pointer;
+        padding: 18px;
+        width: 100%;
+        border: none;
+        text-align: center;
+        outline: none;
+        font-size: 15px;
+    }
+    
+    .collapsible:after {
+        content: '\002B';
+        font-weight: bold;
+        float: left;
+        margin-left: 5px;
+    }
+
+    .SoftwareSegment,
+    .ProjectsSegment,
+    .HardwareSegment {
+        padding: 0 18px;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.2s ease-out;
+    }
+        
+    .active:after {
+        content: "\2212";
+    }
+
+    .SoftwareSegment h2,
+    .ProjectsSegment h2,
+    .HardwareSegment h2 {
+        display: none;
+    }
 }
 
 
@@ -318,8 +427,8 @@ img {
 /************************************************************************************************/
 
 @media(max-width: 200px) {
-    * {
-        background: white;
+    * , .color2 {
+        background-color: white;
     }
 
     .SmallDeviceMessage {
@@ -335,5 +444,4 @@ img {
         all: unset;
         display: none;
     }
-
 }
