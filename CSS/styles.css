@@ -71,7 +71,7 @@ body {
 .MainContent {
     width: 85%;
     height: 100%;
-    margin: 0 auto;
+    margin: auto;
 }
 
 /*Wrapper for 3 expandable columns*/
@@ -96,9 +96,9 @@ body {
 }
 
 .HardwareSegment h2,
-.ProjectsSegment h2,
-.SoftwareSegment h2 {
-    text-align: right;
+.SoftwareSegment h2,
+.ProjectsSegment h2 {
+    text-align: center;
     flex-direction: column;
 }
 
@@ -287,11 +287,6 @@ img {
 /************************************************************************************************/
 
 @media(min-width: 1482px){
-    .MainContent {
-        align-items: center;
-        justify-items: center;
-        flex: 1 0 auto;
-    }
 
 }
 
@@ -328,6 +323,21 @@ img {
     .HardwareSegment {
         grid-row: 3/5;
         grid-column: 3/5;
+    }
+
+    .HardwareSegment h2 {
+        text-align: right;
+        flex-direction: column;
+    }
+    
+    .ProjectsSegment h2 {
+        text-align: center;
+        flex-direction: column;
+    }
+    
+    .SoftwareSegment h2  {
+        text-align: left;
+        flex-direction: column;
     }
 
     .SoftwareSegment:hover {
