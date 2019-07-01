@@ -1,0 +1,239 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Catena Project</title>
+    <link rel="stylesheet" href="CSS/normalize.css">
+    <link rel="stylesheet" href="CSS/styles.css">
+    <script src="JS/scripts.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+</head>
+
+<body class="color2">
+    <!--Message for small screens-->
+    <strong>
+        <div class="SmallDeviceMessage">
+            This webpage is best experienced with a viewing width above 400 pixels.
+            <br>Visit anytime with adequate screen resolution!</br>
+        </div>
+    </strong>
+
+    <!--Top Navagation Segment
+        Collapsible Menu-->
+    <header class="MainHeader color1">
+        <!--Pre-flexbox attempt-->
+        <!--<div class="container clearfix">-->
+        <!--Flexbox attempt-->
+        <div class="HeaderWrapper">
+            <h1 class="SiteTitle">Project "Catena" by Caleb Provost</h1>
+            <ul class="HeadNav">
+                <li><a href="index.html">Home Page</a></li>
+                <li><a href="index.html#Software">Software</a></li>
+                <div class="iconShell">
+                    <div id="MenuIcon" class="icon" onclick="menuAnimation()"></div>
+                </div>
+            </ul>
+        </div>
+    </header>
+
+    <div class="MainContent color4">
+        <div class="container">
+
+            <div class="centerContent">
+                <div class="pageNav">
+                    <li class="pageJumpLinks"><a href="catena.html#projectConcept">
+                            Project Concept
+                        </a></li>
+                    <li class="pageJumpLinks"><a href="catena.html#Goals">
+                            Goals
+                        </a></li>
+                    <li class="pageJumpLinks"><a href="catena.html#wishList">
+                            Project Wish List
+                        </a></li>
+                    <li class="pageJumpLinks"><a href="catena.html#startingPoint">
+                            Starting Point Decisions
+                        </a></li>
+                    <li class="pageJumpLinks"><a href="catena.html#beginning">
+                            And We’re Off
+                        </a></li>
+                </div>
+
+                <h2 style="color: white;">Please note that I have yet added the sources of information, and those who’ve
+                    inspired segments of
+                    my work. I will expand upon this blog styled project to include this information when I get the
+                    chance.</h2>
+
+                <h3 id=“projectConcept”>Project Concept</h3>
+                <p>Catena, a Latin derived word which Oxford Dictionary defines as “a connected series or chain.” The
+                    name of this project is befitting of the device as it connects real-world physical puzzles to each
+                    other for a structured interactive experience.</p>
+
+                <h3 id=“Goals”>Goals</h3>
+                <p>My goal is to create a mobile device in which, modularly or otherwise, can interact with as many
+                    sensors as possible without compromising the simplicity of its use. I hope to someday see it in the
+                    “Escape Room” style interactive puzzle industry and contribute to the experience and expand upon the
+                    possibilities of puzzles.</p>
+
+                <h3 id=“wishList”>Project Wish List</h3>
+                <p> Ideally I’d be able to make a small handheld device which could house every feasible sensor known to
+                    man. That would be an accomplishment itself (especially for one person to do). So I know I’ll have
+                    to compromise on something along the way, but I’ll do my best to incorporate as many as possible and
+                    start eliminating when I come across limitations. So then, below are some things I’d like Catena to
+                    do.
+
+                    <br>Hardware wise, have:
+                    <li> Memory large enough to accommodate RTOS and UX apps.</li>
+                    <li> Mobility with enough power to accommodate around 2 hours of use (LiPo, or other?).</li>
+                    <li> Wireless network communications for customer and end user information backups.</li>
+                    <li> Light/color sensors (multiple spectrums) and emitters (laser sounds the most useful for
+                        puzzles).</li>
+                    <li> Temp sensors (internally for device safety) *struggling to think of safe ways a puzzle would
+                        incorporate heat differences to justify external temp sensors*.</li>
+                    <li> Pressure feedback (pressure switches maybe).</li>
+                    <li> Accelerometer (for movement as well as gravity sensor. Think angular positioning).</li>
+                    <li> Microphone or Piezo-electric sensors.</li>
+                    <li>1 Ghz or faster processor.</li>
+                    <li> Expandable memory, or internal large enough to accommodate hours of video and audio files.</li>
+                    <li> Speakers (not sure quality is necessary).</li>
+                    <li> Radio Frequency transmitter (NFC would work).</li>
+                    <li> DC motor(s). *small for vibration feedback or even inner-compartment lever*</li>
+                    <li> Keyboard (could be eliminated for digital replacement, however, I’m concerned the display will
+                        be masked too much).</li>
+                    <li> Case accessible buttons (like volume or laser on, etc).</li>
+                    <li> Handheld Display.</li>
+                    <li> Camera(s). </li>
+                    <li> GPS/WLAN? *not sure if I see this as necessary, unless it’s also marketed as a geocaching game
+                        device*</li>
+                    <li> Indicator LEDs.</li>
+                    <li> Magnetic sensors (Hall-effect) *could be used for cheaper puzzles by the customer*.</li>
+
+                    <br>Software:
+                    <li> Firmware to operate hardware.</li>
+                    <li>Customized OS to eliminate end user manipulation (modified Linux?).</li>
+                    <li> Diagnostics app for one source testing all hardware (potentially a hidden boot partition which
+                        loads directly to this as well).</li>
+                    <li> Server backend software.</li>
+                    <li> Customer story setup software. *guided mode and advance mode options*</li>
+                    <li> End user application (prompts at given times, tip request features [set with predetermined tips
+                        or pager feature for assistance], revisit clues, notes segment, etc). </li>
+                </p>
+
+                <h3 id=“startingPoint”> Starting Point Decisions </h3>
+                <p> Prototyping Board:<br>
+                    I’ve chosen to go with the BeagleBone Black Wireless (BBBW) as its embedded ARM SoC meets many
+                    features I wanted to have already, and has many resources which will allow for faster prototyping.
+                    With all the open ware and open licenses, I can continue onto creating my own custom board after as
+                    well. This means I have an added goal of designing a single board computer of my own which will
+                    incorporate all the hardware I want. <br>
+
+                    RTOS: <br>
+                    The BBBW has an RTOS Debian Linux already established for it. Linux is friendlier when it comes to
+                    modifying its OS features and making drivers (or so my research is suggesting). However, I have yet
+                    to use Linux for any development purposes. This will be a completely new experience for me. My goal
+                    with it would be to modify it to boot directly to the customer’s software and only have access to
+                    the OS through special “developer debug” access. <br>
+
+                    Screen/Keyboard: <br>
+                    I’ve found a smaller sized screen with capacitive touch which would make for an ideal mobile
+                    display, but it would be too small for a digital keyboard. But with some searching (BlackBerry
+                    Keyboard) I’ve come across some people’s (list them) work one the utilization of the BB’s Q10
+                    keyboard. I’d like to use it for my own project as well, this way I could incorporate some hardware
+                    keys to be pressed during boot to activate some hidden features, or even during the device use to
+                    prompt admin access. <br>
+
+                    Wireless Communications: <br>
+                    The BBBW already has a Bluetooth and WiFi module on it. This is helpful for faster prototyping and
+                    making software which will communicate with a server to export some data for statistics and other
+                    customer features, but it’s lacking wireless communication which can be used in conjunction with the
+                    physical environment. One of the first puzzles I want to demonstrate with the device is how it can
+                    determine which “block” or item is the correct one when it’s placed in the correct location (“choose
+                    wisely” kind of situation). To do this I was thinking I could use NFC as the physical puzzles would
+                    only require an NFC sticker to be placed under the surface to work. This would also allow the
+                    customer to create cheaper, reusable puzzles faster. <br>
+
+                    Battery: <br>
+                    It appears that the BBBW has pins to the PMIC which will allow for a 3.7v LiPo to directly connect
+                    to it. But when I looked into this further, it appears that direct connect to it was left off
+                    intentionally, and that it won’t operate the wireless when powered this way.
+                    For safety, and practice with the system’s ADCs (LBO/or BATT pin would make a good battery level
+                    sensor pin), I grabbed a power module from adafuit to use a DC/DC boost converter with UPS features
+                    to make it feel a bit more like a phone/tablet style device. I’d like to use the BBBW’s own PMIC to
+                    power the system via battery, so I’ll have to do more research into how to do so safely in a later
+                    date. For now I’ll use this module which I can reuse in other projects too. <br>
+
+                    <h3 id=“beginning”> And We’re Off – I will need to expand on this; currently an outline of what’s
+                        happened.</h3>
+                    <p> Accomplished so far: <br>
+                        GPIO Pins research, what is used on the board already by the modules already attached, what is
+                        available to use for keyboard and battery communication.<br>
+                        Find how to get the LCD into portrait mode and have it automatically boot into portrait mode.
+                        This took some learning on how the GUI works with Linux Oss (specifically X11 on debian).
+                        I researched and testing the built in WiFi module and learned how to set it up; still need to
+                        create a save state of the information to load upon boot.<br>
+                        What I have performed so far:
+                        <li>Coded the ADC in voltage reading, and battery % remaining calculations; </li>
+                        <li>Calculated and created the voltage divider circuit necessary for the battery in module to
+                            provide the correct voltage range; </li>
+                        <li>Inspected and researched which hardware pin-mux can be modified for IO operations; </li>
+                        <li>Designed, developed, and integrated the diagnosis application; </li>
+                        <li>Established how to modify core OS drivers to switch the screen into portrait mode for basic
+                            driver compliant LCD’s and created instructions for others to do so; </li>
+                        <li>Established and collected resources for making an adapter for mobile cell-phone keyboard
+                            (BlackBerry Q10 keyboard). </li>
+                        <li>Created bootup system modifications necessary to integrate a Matrix Keyboard into the OS
+                            applicable hardware; </li>
+                        <li>Established code necessary for wireless communications; </li>
+                        <li>Tested and verified each hardware module communicates with the OS appropriately – however
+                            not all at the same time so far; </li>
+                    </p>
+            </div>
+        </div>
+
+        <!--Forum segment for visitors to leave a message on page or directly to me-->
+        <fieldset class="feedbackForum color6">
+            <forum action="index.html" method="get">
+
+                <label for="comment_purpose">
+                    <input type="radio" checked id="comment_purpose" name="forumRadio" onclick="HideEmail()">
+                    Leave a public comment
+                </label><br>
+
+                <label for="message_purpose">
+                    <input type="radio" id="message_purpose" name="forumRadio" onclick="ShowEmail()">
+                    Send a private message
+                </label><br>
+
+                <label for="name" class="forumInput">Name/Alias: </label>
+                <input type="text" id="name" name="visitors_name" required><br>
+            </forum>
+
+            <form>
+                <div class="emailBox hidden" id="emailAddress">
+                    <label for="emailAddress">Email: </label>
+                    <input id="emailAddress" type="email" placeholder="my@email.com">
+                </div>
+
+                <div class="messageBox">
+                    <textarea id="message" required placeholder="Send me a message or leave me a comment!"></textarea>
+                </div>
+
+                <input type="submit" value="Submit">
+            </form>
+        </fieldset>
+    </div>
+
+    <!--Footer to Contain Personal Culture/Interests-->
+    <footer class="MainFooter color1">
+        <li style="display: none;"><a href="Blog">My Adventures</a></li>
+        <li style="display: none;"><a href="Interests">Shared Interests</a></li>
+        <li style="display: none;"><a href="Learnage">Lifelong Learner</a></li>
+        <li><a href="https://www.linkedin.com/in/calebprovost/" class="linkedin">My LinkedIn</a></li>
+    </footer>
+
+    <script src="JS/scripts.js"></script>
+</body>
+
+</html>
