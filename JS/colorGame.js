@@ -1,12 +1,16 @@
+/**************************************************************************/
+/* Initialize variables to be used for game                               */
+/**************************************************************************/
 const easyDifficulty = document.getElementById("easyDifficulty");
 const mediumDifficulty = document.getElementById("mediumDifficulty");
 const hardDifficulty = document.getElementById("hardDifficulty");
 const customDifficulty = document.getElementById("customDifficulty");
 const customButton = document.getElementById("customButton");
 
-const score = document.querySelector("span.score");
-score.textContent = 0;
-
+/**************************************************************************/
+/* Upon 'click' of difficulty option, create a table with a random color  */
+/* EASY OPTION: 5x5                                                       */
+/**************************************************************************/
 easyDifficulty.addEventListener('click', () => {function addRow() {
     // Get a reference to the table
     var tableRef = document.getElementById('autoTable');
@@ -49,6 +53,9 @@ easyDifficulty.addEventListener('click', () => {function addRow() {
 });
 
 
+/**************************************************************************/
+/* MEDIUM OPTION: 10x10                                                   */
+/**************************************************************************/
 mediumDifficulty.addEventListener('click', () => {function addRow() {
   // Get a reference to the table
   var tableRef = document.getElementById('autoTable');
@@ -71,33 +78,25 @@ mediumDifficulty.addEventListener('click', () => {function addRow() {
  }
 }
 
-var stringToColour = function(str) {
-    var hash = 0;
-    for (var i = 0; i < str.length; i++) {
-        hash = str.charCodeAt(i) + ((hash << 5) - hash);
-    }
-    var colour = '#';
-    for (var i = 0; i < 3; i++) {
-        var value = (hash >> (i * 8)) & 0xFF;
-        colour += ('00' + value.toString(16)).substr(-2);
-    }
-    return colour;
-}
-function makeid() {
-  var text = "";
-  var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+function getRandomColor() {
+  var letters = '0123456789ABCDEF';
+  var color = '#';
+  for (var i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+  }
 
-  for (var i = 0; i < 5; i++)
-    text += possible.charAt(Math.floor(Math.random() * possible.length));
-
-  return text;
-}
-addRow();
-$('#autoTable td').each(function () {
-    $(this).css('background-color', stringToColour(makeid()));
-});});
+  addRow();
+  $('#autoTable').each(function () {
+      $(this).css('background-color', getRandomColor());
+    });
+});
 
 
+/**************************************************************************/
+/* HARD OPTION: 15x15                                                     */
+/**************************************************************************/
 hardDifficulty.addEventListener('click', () => {function addRow() {
   // Get a reference to the table
   var tableRef = document.getElementById('autoTable');
@@ -120,33 +119,24 @@ hardDifficulty.addEventListener('click', () => {function addRow() {
  }
 }
 
-var stringToColour = function(str) {
-    var hash = 0;
-    for (var i = 0; i < str.length; i++) {
-        hash = str.charCodeAt(i) + ((hash << 5) - hash);
-    }
-    var colour = '#';
-    for (var i = 0; i < 3; i++) {
-        var value = (hash >> (i * 8)) & 0xFF;
-        colour += ('00' + value.toString(16)).substr(-2);
-    }
-    return colour;
-}
-function makeid() {
-  var text = "";
-  var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+function getRandomColor() {
+  var letters = '0123456789ABCDEF';
+  var color = '#';
+  for (var i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+  }
 
-  for (var i = 0; i < 5; i++)
-    text += possible.charAt(Math.floor(Math.random() * possible.length));
+  addRow();
+  $('#autoTable').each(function () {
+      $(this).css('background-color', getRandomColor());
+    });
+});
 
-  return text;
-}
-addRow();
-$('#autoTable td').each(function () {
-    $(this).css('background-color', stringToColour(makeid()));
-});});
-
-//customDifficulty.value
+/**************************************************************************/
+/* CUSTOM OPTION: Input is read from text field and activated on 'click'  */
+/**************************************************************************/
 customButton.addEventListener('click', () => {function addRow() {
   // Get a reference to the table
   var tableRef = document.getElementById('autoTable');
@@ -169,28 +159,33 @@ customButton.addEventListener('click', () => {function addRow() {
  }
 }
 
-var stringToColour = function(str) {
-    var hash = 0;
-    for (var i = 0; i < str.length; i++) {
-        hash = str.charCodeAt(i) + ((hash << 5) - hash);
-    }
-    var colour = '#';
-    for (var i = 0; i < 3; i++) {
-        var value = (hash >> (i * 8)) & 0xFF;
-        colour += ('00' + value.toString(16)).substr(-2);
-    }
-    return colour;
-}
-function makeid() {
-  var text = "";
-  var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+function getRandomColor() {
+  var letters = '0123456789ABCDEF';
+  var color = '#';
+  for (var i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+  }
 
-  for (var i = 0; i < 5; i++)
-    text += possible.charAt(Math.floor(Math.random() * possible.length));
+  addRow();
+  $('#autoTable').each(function () {
+      $(this).css('background-color', getRandomColor());
+    });
+});
 
-  return text;
-}
-addRow();
-$('#autoTable td').each(function () {
-    $(this).css('background-color', stringToColour(makeid()));
-});});
+/**************************************************************************/
+/* Each successful click on the randomized cell increments score and      */
+/* continues the loop. Wrong cell selected breaks loop and give feedback  */
+/**************************************************************************/
+
+//Initialize variables for determining randomized cell
+const score = document.querySelector("span.score");
+score.textContent = 0;
+
+//Randomized cell has an attributed % difference to the rest
+
+//Randomized cell's % difference is proportional to the difficulty and current score
+//(higher score, smaller % difference)
+
+//Loop triggering randomized color of table, keeps count of score, and 

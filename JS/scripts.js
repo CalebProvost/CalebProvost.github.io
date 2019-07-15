@@ -1,3 +1,6 @@
+/**************************************************************************/
+/********************** Interactive Forum Scripts *************************/
+/**************************************************************************/
 function ShowEmail() {
     var emailText = document.getElementById("emailAddress");
 
@@ -12,6 +15,9 @@ function HideEmail() {
     $('input').prop('required', false)
 }
 
+/**************************************************************************/
+/************************* Interactive Menu Icon **************************/
+/**************************************************************************/
 function menuAnimation() {
     if(document.getElementById("MenuIcon").className == "collapseicon")
        document.getElementById("MenuIcon").className = "icon";
@@ -19,6 +25,9 @@ function menuAnimation() {
        document.getElementById("MenuIcon").className = "collapseicon";
 }
 
+/**************************************************************************/
+/************************* Collapse Menu Scripts **************************/
+/**************************************************************************/
 var coll = document.getElementsByClassName("collapsible");
 for (var i = 0; i < coll.length; i++) {
     coll[i].addEventListener("click", function() {
@@ -31,3 +40,19 @@ for (var i = 0; i < coll.length; i++) {
     } 
     });
 }
+
+/**************************************************************************/
+/************************** Mimic Forum Feedback **************************/
+/**************************************************************************/
+
+// TODO add timestamp and layout structure to function
+
+function displayComment() {
+    // gets name from html ID name
+    var nameDisplay = document.getElementById("name").value;
+    // gets comments from html ID message
+    var commentDisplay = document.getElementById("message").value;
+    
+    document.getElementById("comments").innerHTML += "<br><p>" + nameDisplay + 
+                                        "</p><p>" + commentDisplay + "</p>";
+  }

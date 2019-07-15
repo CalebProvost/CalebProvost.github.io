@@ -66,18 +66,18 @@
                     my work. I will expand upon this blog styled project to include this information when I get the
                     chance.</h2>
 
-                <h3 id=“projectConcept”>Project Concept</h3>
-                <p>Catena, a Latin derived word which Oxford Dictionary defines as “a connected series or chain.” The
+                <h3 id="projectConcept">Project Concept</h3>
+                <p>Catena, a Latin derived word which Oxford Dictionary defines as "a connected series or chain." The
                     name of this project is befitting of the device as it connects real-world physical puzzles to each
                     other for a structured interactive experience.</p>
 
-                <h3 id=“Goals”>Goals</h3>
+                <h3 id="Goals">Goals</h3>
                 <p>My goal is to create a mobile device in which, modularly or otherwise, can interact with as many
                     sensors as possible without compromising the simplicity of its use. I hope to someday see it in the
-                    “Escape Room” style interactive puzzle industry and contribute to the experience and expand upon the
+                    "Escape Room" style interactive puzzle industry and contribute to the experience and expand upon the
                     possibilities of puzzles.</p>
 
-                <h3 id=“wishList”>Project Wish List</h3>
+                <h3 id="wishList">Project Wish List</h3>
                 <p> Ideally I’d be able to make a small handheld device which could house every feasible sensor known to
                     man. That would be an accomplishment itself (especially for one person to do). So I know I’ll have
                     to compromise on something along the way, but I’ll do my best to incorporate as many as possible and
@@ -121,7 +121,7 @@
                         or pager feature for assistance], revisit clues, notes segment, etc). </li>
                 </p>
 
-                <h3 id=“startingPoint”> Starting Point Decisions </h3>
+                <h3 id="startingPoint"> Starting Point Decisions </h3>
                 <p> Prototyping Board:<br>
                     I’ve chosen to go with the BeagleBone Black Wireless (BBBW) as its embedded ARM SoC meets many
                     features I wanted to have already, and has many resources which will allow for faster prototyping.
@@ -134,7 +134,7 @@
                     modifying its OS features and making drivers (or so my research is suggesting). However, I have yet
                     to use Linux for any development purposes. This will be a completely new experience for me. My goal
                     with it would be to modify it to boot directly to the customer’s software and only have access to
-                    the OS through special “developer debug” access. <br>
+                    the OS through special "developer debug" access. <br>
 
                     Screen/Keyboard: <br>
                     I’ve found a smaller sized screen with capacitive touch which would make for an ideal mobile
@@ -149,8 +149,8 @@
                     making software which will communicate with a server to export some data for statistics and other
                     customer features, but it’s lacking wireless communication which can be used in conjunction with the
                     physical environment. One of the first puzzles I want to demonstrate with the device is how it can
-                    determine which “block” or item is the correct one when it’s placed in the correct location (“choose
-                    wisely” kind of situation). To do this I was thinking I could use NFC as the physical puzzles would
+                    determine which "block" or item is the correct one when it’s placed in the correct location ("choose
+                    wisely" kind of situation). To do this I was thinking I could use NFC as the physical puzzles would
                     only require an NFC sticker to be placed under the surface to work. This would also allow the
                     customer to create cheaper, reusable puzzles faster. <br>
 
@@ -164,7 +164,7 @@
                     power the system via battery, so I’ll have to do more research into how to do so safely in a later
                     date. For now I’ll use this module which I can reuse in other projects too. <br>
 
-                    <h3 id=“beginning”> And We’re Off – I will need to expand on this; currently an outline of what’s
+                    <h3 id="beginning"> And We’re Off – I will need to expand on this; currently an outline of what’s
                         happened.</h3>
                     <p> Accomplished so far: <br>
                         GPIO Pins research, what is used on the board already by the modules already attached, what is
@@ -194,8 +194,7 @@
 
         <!--Forum segment for visitors to leave a message on page or directly to me-->
         <fieldset class="feedbackForum color6">
-            <forum action="index.html" method="get">
-
+            <forum action="index.html" method="post">
                 <label for="comment_purpose">
                     <input type="radio" checked id="comment_purpose" name="forumRadio" onclick="HideEmail()">
                     Leave a public comment
@@ -205,12 +204,14 @@
                     <input type="radio" id="message_purpose" name="forumRadio" onclick="ShowEmail()">
                     Send a private message
                 </label><br>
-
-                <label for="name" class="forumInput">Name/Alias: </label>
-                <input type="text" id="name" name="visitors_name" required><br>
             </forum>
 
             <form>
+                <div class="visitorName">
+                        <label for="name" class="forumInput">Name/Alias: </label>
+                        <input type="text" id="name" name="visitors_name" required><br>
+                </div>
+
                 <div class="emailBox hidden" id="emailAddress">
                     <label for="emailAddress">Email: </label>
                     <input id="emailAddress" type="email" placeholder="my@email.com">
@@ -220,9 +221,18 @@
                     <textarea id="message" required placeholder="Send me a message or leave me a comment!"></textarea>
                 </div>
 
-                <input type="submit" value="Submit">
+                <!-- template for when backend is ready -->
+                <!-- <input type="submit" value="Submit"> -->
+
+                <!-- presentation example until its ready -->
+                <button type="button" id="submitButton" onclick="displayComment()">Submit</button>
             </form>
+            <hr>
+            <h3>Feedback:</h3>
+            <p>Note: I have yet to set a backend response, all displays are temporary and will be discarded upon refresh.</p>
+            <div id="comments"></div>
         </fieldset>
+
     </div>
 
     <!--Footer to Contain Personal Culture/Interests-->
