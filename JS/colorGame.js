@@ -7,6 +7,7 @@ $('.JScheckMessage').hide();
 /*************************** Global variables *****************************/
 /**************************************************************************/
 var difficulty;
+var newLight;
 var score = 0;
 var $score = $('div.score').html("Score: <span>" + score + "</span>");
 
@@ -132,7 +133,7 @@ function getRandCellBGColor($randCell) {
 /**************************************************************************/
 /******* Adjust Random Cell's 'lightness' in ratio to Difficulty **********/
 /**************************************************************************/
-function lightenCell($randCell) {
+function lightenCell($randCell, newLight) {
 
   //gets random cell's background colors in HSL
   var bgHue = getRandCellBGColor($randCell)[0];
@@ -142,7 +143,9 @@ function lightenCell($randCell) {
 
   //adjusts old lightness to new one based off of score and difficulty
   difficulty = document.querySelector('#autoTable').rows.length;
-  var newLight = bgLight + difficulty;
+  var percentDifference = score - (difficulty + 10);
+  newLight = bgLight - percentDifference;
+  
 
   //removes style attribute from cell before adding new one
   $($randCell).removeAttr('style');
@@ -167,34 +170,30 @@ function randCell(tableSize) {
 function startGame(tableSize, satMin, satMax, lightVal) {
   createTable(tableSize, satMin, satMax, lightVal);
   var $randCell = randCell(tableSize);
-  var newLight = lightenCell($randCell)[0];
-  var bgLight = lightenCell($randCell)[1];
-
-  // while (newLight!=bgLight) {
-    $($randCell).on('click', function () {
-      $(this).attr('style', "background-color: rgb(255, 255, 255)");
-
-        //adjusts old lightness to new one based off of score and difficulty
-  difficulty = document.querySelector('#autoTable').rows.length;
-  var percentDifference = score + difficulty + 10;
-  var newLight = bgLight + percentDifference;
-
-      difficulty--;
-      score++;
-      $score = $('div.score').html("Score: <span>" + score + "</span>");
-      
-      createTable(tableSize, satMin, satMax, lightVal);
-      $randCell = randCell(tableSize);
-      lightenCell($randCell);
-    });
-  // }
+  var newLight = lightenCell($randCell);
+  
   /** Upon table click, check if target was random cell,
   ** if yes, perform increment loop and table recreation;
   ** if no, break to game over statement and clear table **/
 
+  //check if the table is clicked and listen for the targeted element in it
+  document.getElementById('autoTable').addEventListener("click", function (event) {
+    //verify if the targeted element was the randomCell and run again it was
+    if (event.target === $randCell) {
+      /* Increment Score and Difficulty; Call on table generator */
+      difficulty--;
+      score++;
+      $score = $('div.score').html("Score: <span>" + score + "</span>");
 
-  /* Increment Score and Difficulty; Call on table generator */
-
-  /* Game Over! Places score in new field while clearing old one, and clears table */
-
+      createTable(tableSize, satMin, satMax, lightVal);
+      $randCell = randCell(tableSize);
+      lightenCell($randCell);
+    } else if (newLight.value === lightVal.value) { 
+      //if the incremented difficulty reaches the same as the other cells, user WINS
+      alert("CONGRADULATIONS!!!\nYou'be beat this level!\nTry another one!");
+    }else {
+      //if target wasn't the randCell, then game over prompt is called
+      alert("Game Over!!!\nThank you for playing! \nAny suggestions, PM me via Github or my LinkedIn.");
+    }
+  });
 }
