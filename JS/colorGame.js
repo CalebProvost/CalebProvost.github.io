@@ -1,191 +1,200 @@
 /**************************************************************************/
-/* Initialize variables to be used for game                               */
+/** Hide "something went wrong with JavaScript..." message from showing  **/
 /**************************************************************************/
-const easyDifficulty = document.getElementById("easyDifficulty");
-const mediumDifficulty = document.getElementById("mediumDifficulty");
-const hardDifficulty = document.getElementById("hardDifficulty");
-const customDifficulty = document.getElementById("customDifficulty");
-const customButton = document.getElementById("customButton");
+$('.JScheckMessage').hide();
 
 /**************************************************************************/
-/* Upon 'click' of difficulty option, create a table with a random color  */
-/* EASY OPTION: 5x5                                                       */
+/*************************** Global variables *****************************/
 /**************************************************************************/
-easyDifficulty.addEventListener('click', () => {function addRow() {
-    // Get a reference to the table
-    var tableRef = document.getElementById('autoTable');
-
-      //delete rows before displaying new difficulty
-    for(var i = tableRef.rows.length - 1; i > -1; i--)
-    {
-      tableRef.deleteRow(i);
-    }
-    
-    for(var k=0;k<5;k++){
-      // Insert a row in the table at row index 0
-      var newRow = tableRef.insertRow(-1);
-      newRow.className = k;
-
-      // Insert a cell in the row at index 0
-      for(var j =0; j<5;j++){
-        var newCell = newRow.insertCell(j);
-        newCell.className = j;
-      }
-    }
-  }
-  
-  //inner function variables
-
-
-    function getRandomColor() {
-    var letters = '0123456789ABCDEF';
-    var color = '#';
-    for (var i = 0; i < 6; i++) {
-      color += letters[Math.floor(Math.random() * 16)];
-    }
-    return color;
-    }
-
-    addRow();
-    $('#autoTable').each(function () {
-        $(this).css('background-color', getRandomColor());
-      });
-});
-
+var difficulty;
+var score = 0;
+var $score = $('div.score').html("Score: <span>" + score + "</span>");
 
 /**************************************************************************/
-/* MEDIUM OPTION: 10x10                                                   */
+/****** Generates table and background color from passed-in variables *****/
 /**************************************************************************/
-mediumDifficulty.addEventListener('click', () => {function addRow() {
-  // Get a reference to the table
+function createTable(tableSize, satMin, satMax, lightVal) {
+
+  //finds place to put the table
   var tableRef = document.getElementById('autoTable');
+  //initiates what color to make the cells
+  var cellColor = randomBackgroundColor(satMin, satMax, lightVal);
 
-    //delete rows before displaying new difficulty
-  for(var i = tableRef.rows.length - 1; i > -1; i--)
-  {
+  //clears table before recreating it
+  for (var i = tableRef.rows.length - 1; i > -1; i--) {
     tableRef.deleteRow(i);
   }
-  for(var k=0;k<10;k++){
-    // Insert a row in the table at row index 0
+
+  //inserts rows
+  for (var k = 0; k < tableSize; k++) {
     var newRow = tableRef.insertRow(-1);
     newRow.className = k;
 
-    // Insert a cell in the row at index 0
-    for(var j =0; j<10;j++){
-    var newCell = newRow.insertCell(j);
-    newCell.className = j;
+    //Inserts cells with generated background color
+    for (var j = 0; j < tableSize; j++) {
+      var newCell = newRow.insertCell(j);
+      newCell.className = j;
+      $(newCell).attr("style", cellColor);
+    }
   }
- }
 }
 
-function getRandomColor() {
-  var letters = '0123456789ABCDEF';
-  var color = '#';
-  for (var i = 0; i < 6; i++) {
-    color += letters[Math.floor(Math.random() * 16)];
-  }
+/**************************************************************************/
+/********************** Background Color Generator ************************/
+/**************************************************************************/
+function randomBackgroundColor(satMin, satMax, lightVal) {
+
+  //randomized Hue
+  var hue = Math.floor(Math.random() * 360) + 0;
+  //random saturation with the passed in min and max and converted from decimal to %
+  var sat = (Math.floor(Math.random() * satMax) + satMin) * 100;
+  //lightness value passed in and converted from decimal to %
+  var light = lightVal * 100;
+
+  //background color in attribute injection format 
+  color = "background-color: hsl(" + hue + ", " + sat + "%, " + light + "%)";
   return color;
-  }
-
-  addRow();
-  $('#autoTable').each(function () {
-      $(this).css('background-color', getRandomColor());
-    });
-});
-
-
-/**************************************************************************/
-/* HARD OPTION: 15x15                                                     */
-/**************************************************************************/
-hardDifficulty.addEventListener('click', () => {function addRow() {
-  // Get a reference to the table
-  var tableRef = document.getElementById('autoTable');
-
-  //delete rows before displaying new difficulty
-  for(var i = tableRef.rows.length - 1; i > -1; i--)
-  {
-    tableRef.deleteRow(i);
-  }
-  for(var k=0;k<15;k++){
-    // Insert a row in the table at row index 0
-    var newRow = tableRef.insertRow(-1);
-    newRow.className = k;
-
-    // Insert a cell in the row at index 0
-    for(var j =0; j<15;j++){
-    var newCell = newRow.insertCell(j);
-    newCell.className = j;
-  }
- }
 }
 
-function getRandomColor() {
-  var letters = '0123456789ABCDEF';
-  var color = '#';
-  for (var i = 0; i < 6; i++) {
-    color += letters[Math.floor(Math.random() * 16)];
-  }
-  return color;
-  }
-
-  addRow();
-  $('#autoTable').each(function () {
-      $(this).css('background-color', getRandomColor());
-    });
-});
-
 /**************************************************************************/
-/* CUSTOM OPTION: Input is read from text field and activated on 'click'  */
+/********** Select Random Cell and Get Background Color in HSL ************/
 /**************************************************************************/
-customButton.addEventListener('click', () => {function addRow() {
-  // Get a reference to the table
-  var tableRef = document.getElementById('autoTable');
+function getRandCellBGColor($randCell) {
 
-  //delete rows before displaying new difficulty
-  for(var i = tableRef.rows.length - 1; i > -1; i--)
-  {
-    tableRef.deleteRow(i);
-  }
-  for(var k=0;k<customDifficulty.value;k++){
-    // Insert a row in the table at row index 0
-    var newRow = tableRef.insertRow(-1);
-    newRow.className = k;
+  //gets background color of randomized cell
 
-    // Insert a cell in the row at index 0
-    for(var j =0; j<customDifficulty.value;j++){
-    var newCell = newRow.insertCell(j);
-    newCell.className = j;
-  }
- }
+  /*! pulling color from the DOM results in rgb, thus I had to research and find     ***
+  *** a solution to convert it from RGB to HSL, which required me to strip the text  ***
+  *** into individual variables and then convert them into HSL format.               !*/
+
+  //passed in random cell's background color
+  var backgroundRGB = $randCell.style.backgroundColor;
+
+  //strips integers from string format of RGB
+  var r = backgroundRGB.replace(/^\D+/g, '').replace(/,.*/g, '');
+  var g = backgroundRGB.replace(r, '').replace(/^\D+/g, '').replace(/,.*/g, '');
+  var b = backgroundRGB.replace(r, '').replace(g, '')
+    .replace(/^\D+/g, '').replace(/,.*/g, '').replace(/[()]/g, '');
+
+  /*** converts RGB to HSL format. 
+   *** Courtesy of https://css-tricks.com/converting-color-spaces-in-javascript/ */
+        // Make r, g, and b fractions of 1
+        r /= 255;
+        g /= 255;
+        b /= 255;
+
+        // Find greatest and smallest channel values
+        let cmin = Math.min(r, g, b),
+          cmax = Math.max(r, g, b),
+          delta = cmax - cmin,
+          h = 0,
+          s = 0,
+          l = 0;
+
+        // Calculate hue
+        // No difference
+        if (delta == 0)
+          h = 0;
+        // Red is max
+        else if (cmax == r)
+          h = ((g - b) / delta) % 6;
+        // Green is max
+        else if (cmax == g)
+          h = (b - r) / delta + 2;
+        // Blue is max
+        else
+          h = (r - g) / delta + 4;
+
+        h = Math.round(h * 60);
+
+        // Make negative hues positive behind 360°
+        if (h < 0)
+          h += 360;
+
+        // Calculate lightness
+        l = (cmax + cmin) / 2;
+
+        // Calculate saturation
+        s = delta == 0 ? 0 : delta / (1 - Math.abs(2 * l - 1));
+
+        // Multiply l and s by 100
+        s = +(s * 100).toFixed(1);
+        l = +(l * 100).toFixed(1);
+
+  //assign the conversion to descriptive pass-through variables
+  backgroundHue = h;
+  backgroundSat = Math.ceil(s);
+  backgroundLight = l;
+
+  return [backgroundHue, backgroundSat, backgroundLight, $randCell];
 }
 
-function getRandomColor() {
-  var letters = '0123456789ABCDEF';
-  var color = '#';
-  for (var i = 0; i < 6; i++) {
-    color += letters[Math.floor(Math.random() * 16)];
-  }
-  return color;
-  }
+/**************************************************************************/
+/******* Adjust Random Cell's 'lightness' in ratio to Difficulty **********/
+/**************************************************************************/
+function lightenCell($randCell) {
 
-  addRow();
-  $('#autoTable').each(function () {
-      $(this).css('background-color', getRandomColor());
+  //gets random cell's background colors in HSL
+  var bgHue = getRandCellBGColor($randCell)[0];
+  var bgSat = getRandCellBGColor($randCell)[1];
+  var bgLight = getRandCellBGColor($randCell)[2];
+  var $randCell = getRandCellBGColor($randCell)[3];
+
+  //adjusts old lightness to new one based off of score and difficulty
+  difficulty = document.querySelector('#autoTable').rows.length;
+  var newLight = bgLight + difficulty;
+
+  //removes style attribute from cell before adding new one
+  $($randCell).removeAttr('style');
+  //inserts old values back in with new lightness value
+  $($randCell).attr('style', "background-color: hsl(" + bgHue + ", " + bgSat + "%, " + newLight + "%)")
+
+  return [newLight, bgLight];
+}
+
+function randCell(tableSize) {
+  //selects a random row
+  var $randRow = $('tbody').children()[Math.floor(Math.random() * tableSize)];
+  //selects a random cell from random row
+  var $randCell = $($randRow).children()[Math.floor(Math.random() * tableSize)];
+
+  return $randCell;
+}
+
+/**************************************************************************/
+/********** Starts the game by calling the appropriate functions **********/
+/**************************************************************************/
+function startGame(tableSize, satMin, satMax, lightVal) {
+  createTable(tableSize, satMin, satMax, lightVal);
+  var $randCell = randCell(tableSize);
+  var newLight = lightenCell($randCell)[0];
+  var bgLight = lightenCell($randCell)[1];
+
+  // while (newLight!=bgLight) {
+    $($randCell).on('click', function () {
+      $(this).attr('style', "background-color: rgb(255, 255, 255)");
+
+        //adjusts old lightness to new one based off of score and difficulty
+  difficulty = document.querySelector('#autoTable').rows.length;
+  var percentDifference = score + difficulty + 10;
+  var newLight = bgLight + percentDifference;
+
+      difficulty--;
+      score++;
+      $score = $('div.score').html("Score: <span>" + score + "</span>");
+      
+      createTable(tableSize, satMin, satMax, lightVal);
+      $randCell = randCell(tableSize);
+      lightenCell($randCell);
     });
-});
+  // }
+  /** Upon table click, check if target was random cell,
+  ** if yes, perform increment loop and table recreation;
+  ** if no, break to game over statement and clear table **/
 
-/**************************************************************************/
-/* Each successful click on the randomized cell increments score and      */
-/* continues the loop. Wrong cell selected breaks loop and give feedback  */
-/**************************************************************************/
 
-//Initialize variables for determining randomized cell
-const score = document.querySelector("span.score");
-score.textContent = 0;
+  /* Increment Score and Difficulty; Call on table generator */
 
-//Randomized cell has an attributed % difference to the rest
+  /* Game Over! Places score in new field while clearing old one, and clears table */
 
-//Randomized cell's % difference is proportional to the difficulty and current score
-//(higher score, smaller % difference)
-
-//Loop triggering randomized color of table, keeps count of score, and 
+}

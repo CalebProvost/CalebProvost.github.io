@@ -38,12 +38,17 @@ header {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    margin: auto;
 }
 
 #autoTable tr td{
-    height: 2.5vh;
-    width: 2.5vw;
-  }
+    height: 4vh;
+    width: 4vh;
+}
+
+table {
+    border-collapse: collapse;
+}  
 
 footer {
     background-color: #fff;
