@@ -56,17 +56,3 @@ function displayComment() {
     document.getElementById("comments").innerHTML += "<br><p>" + nameDisplay + 
                                         "</p><p>" + commentDisplay + "</p>";
   }
-
-/**************************************************************************/
-/************************ Randomly Selects Photo **************************/
-/**************************************************************************/
-
-var random_images_array = ["20190214_175932.jpg"];
-
-function getRandomImage(imgAr, path) {
-    path = path || 'IMG/Catena Photos/'; // default path here
-    var num = Math.floor(Math.random() * imgAr.length);
-    var img = imgAr[num];
-    var imgStr = '<img src="' + path + img + '" alt = "">';
-    document.write(imgStr); document.close();
-}

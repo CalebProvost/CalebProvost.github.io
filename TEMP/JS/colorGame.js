@@ -79,48 +79,48 @@ function getRandCellBGColor($randCell) {
 
   /*** converts RGB to HSL format. 
    *** Courtesy of https://css-tricks.com/converting-color-spaces-in-javascript/ */
-  // Make r, g, and b fractions of 1
-  r /= 255;
-  g /= 255;
-  b /= 255;
+        // Make r, g, and b fractions of 1
+        r /= 255;
+        g /= 255;
+        b /= 255;
 
-  // Find greatest and smallest channel values
-  let cmin = Math.min(r, g, b),
-    cmax = Math.max(r, g, b),
-    delta = cmax - cmin,
-    h = 0,
-    s = 0,
-    l = 0;
+        // Find greatest and smallest channel values
+        let cmin = Math.min(r, g, b),
+          cmax = Math.max(r, g, b),
+          delta = cmax - cmin,
+          h = 0,
+          s = 0,
+          l = 0;
 
-  // Calculate hue
-  // No difference
-  if (delta == 0)
-    h = 0;
-  // Red is max
-  else if (cmax == r)
-    h = ((g - b) / delta) % 6;
-  // Green is max
-  else if (cmax == g)
-    h = (b - r) / delta + 2;
-  // Blue is max
-  else
-    h = (r - g) / delta + 4;
+        // Calculate hue
+        // No difference
+        if (delta == 0)
+          h = 0;
+        // Red is max
+        else if (cmax == r)
+          h = ((g - b) / delta) % 6;
+        // Green is max
+        else if (cmax == g)
+          h = (b - r) / delta + 2;
+        // Blue is max
+        else
+          h = (r - g) / delta + 4;
 
-  h = Math.round(h * 60);
+        h = Math.round(h * 60);
 
-  // Make negative hues positive behind 360°
-  if (h < 0)
-    h += 360;
+        // Make negative hues positive behind 360°
+        if (h < 0)
+          h += 360;
 
-  // Calculate lightness
-  l = (cmax + cmin) / 2;
+        // Calculate lightness
+        l = (cmax + cmin) / 2;
 
-  // Calculate saturation
-  s = delta == 0 ? 0 : delta / (1 - Math.abs(2 * l - 1));
+        // Calculate saturation
+        s = delta == 0 ? 0 : delta / (1 - Math.abs(2 * l - 1));
 
-  // Multiply l and s by 100
-  s = +(s * 100).toFixed(1);
-  l = +(l * 100).toFixed(1);
+        // Multiply l and s by 100
+        s = +(s * 100).toFixed(1);
+        l = +(l * 100).toFixed(1);
 
   //assign the conversion to descriptive pass-through variables
   backgroundHue = h;
@@ -145,14 +145,14 @@ function lightenCell($randCell, newLight) {
   difficulty = document.querySelector('#autoTable').rows.length;
   var percentDifference = score - (difficulty + 10);
   newLight = bgLight - percentDifference;
-
+  
 
   //removes style attribute from cell before adding new one
   $($randCell).removeAttr('style');
   //inserts old values back in with new lightness value
   $($randCell).attr('style', "background-color: hsl(" + bgHue + ", " + bgSat + "%, " + newLight + "%)")
 
-  return [percentDifference, bgLight];
+  return [newLight, bgLight];
 }
 
 function randCell(tableSize) {
@@ -170,8 +170,8 @@ function randCell(tableSize) {
 function startGame(tableSize, satMin, satMax, lightVal) {
   createTable(tableSize, satMin, satMax, lightVal);
   var $randCell = randCell(tableSize);
-  percentDifference = lightenCell($randCell)[0];
-
+  var newLight = lightenCell($randCell);
+  
   /** Upon table click, check if target was random cell,
   ** if yes, perform increment loop and table recreation;
   ** if no, break to game over statement and clear table **/
@@ -188,11 +188,10 @@ function startGame(tableSize, satMin, satMax, lightVal) {
       createTable(tableSize, satMin, satMax, lightVal);
       $randCell = randCell(tableSize);
       lightenCell($randCell);
-      if (score == percentDifference) {
-        //if the incremented difficulty reaches the same as the other cells, user WINS
-        alert("CONGRADULATIONS!!!\nYou'be beat this level!\nTry another one!");
-      } 
-  } else {
+    } else if (newLight.value === lightVal.value) { 
+      //if the incremented difficulty reaches the same as the other cells, user WINS
+      alert("CONGRADULATIONS!!!\nYou'be beat this level!\nTry another one!");
+    }else {
       //if target wasn't the randCell, then game over prompt is called
       alert("Game Over!!!\nThank you for playing! \nAny suggestions, PM me via Github or my LinkedIn.");
     }

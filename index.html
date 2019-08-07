@@ -1,135 +1,203 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Caleb Provost's Profile</title>
-    <link rel="stylesheet" href="CSS/normalize.css">
-    <link rel="stylesheet" href="CSS/styles.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-</head>
-<body class="color2">
-    <!--Message for small screens-->
-    <div class="SmallDeviceMessage">congratulations!!!!!
-            <br>You found an easteregg!</br>
-            <br>How'd you get here and why?</br></div>
-
-    <!--Top Navagation Segment
-        Collapsible Menu-->
-    <header class="MainHeader color1">
-
-        <!--Flexbox-->
-        <div class="HeaderWrapper">
-            <h1 class="SiteTitle">Caleb Provost</h1>
-            <ul class="HeadNav">
-                <li style="display: none;" class="navLinks"><a href="Practice Profile.html#Hardware">Hardware</a></li>
-                <li class="navLinks"><a href="Practice Profile.html#Projects">Projects</a></li>
-                <li style="display: none;" class="navLinks"><a href="Practice Profile.html#Software">Software</a></li>
-                <li style="display: none;" class="navLinks"><a href="index.html#PersonalSnippets">Personal Snippets</a></li>
-                <li class="navLinks"><a href="index.html#FrontEnd">Front End Dev</a></li>
-                <li style="display: none;" class="navLinks"><a href="index.html#BackEnd">Back End Dev</a></li>
-                <div class="iconShell">
-                    <div id="MenuIcon" class="icon" onclick="menuAnimation();"></div>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Caleb Provost's Profile</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="CSS/styles.css">
+    </head>
+    <body data-spy="scroll" data-target="#navbar" data-offset="150">
+<!--Fixed Nav with Scroll Spy-->
+        <div class="citeNav container">
+            <nav class="navbar navbar-expand-sm fixed-top">
+                <a class="navbar-brand text-white">Caleb Provost</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbar">
+                    <ul class="navbar-nav nav-pills ml-auto">
+                        <li class="nav-item ml-auto">
+                            <a class="nav-link nav-link-color btn-dark" href="#aboutMe">About Me</a>
+                        </li>
+                        <li class="nav-item ml-auto">
+                            <!--When projects are added, use drowndown version-->
+                            <a class="nav-link nav-link-color btn-dark" href="#projectSummaries">My Projects</a>
+                            <!--Dropdown Version-->
+                            <!-- <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+                                    aria-expanded="false">My Projects</a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="#projectOne">Project One</a>
+                                    <a class="dropdown-item" href="#projectTwo">Project Two</a>
+                                    <div role="separator" class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#projectThree">Project Three</a>
+                                </div>
+                            </li> -->
+                        </li>
+                        <li class="nav-item ml-auto">
+                                <a class="nav-link nav-link-color btn-dark" href="#contactMe">Contact Me</a>
+                        </li>
+                    </ul>
                 </div>
-            </ul>
+            </nav>
         </div>
-    </header>
 
-        <!--Main Content Segment
-        Three Piece Sections Influenced by JavaScript
-        Place Personal Background Images to Meet Each Theme-->
-    <div class="MainContent color2">
+<!--About Me Segment-->
+        <div class="firstSegment container-fluid mt-auto">
+            <div class="row">
+                <!--Left Half: Professional Portrait-->
+                <div class="portrait container col-md">
+                    <div class="stickyContainer">
+                        <img src="IMG/Caleb Provost.jpg" alt="Portrait of Caleb Provost" class="professionalPhoto">
+                    </div>
+                </div>
         
-        <div class="container grid-container">
-            <!--Software Segment-->
-            <button class="collapsible color3">Software</button>
-            <div class="SoftwareSegment grid_item color3">
-                <h2>Software</h2>
-                <img class="ProfileImages" src="IMG\Generic Code.jpg" alt="Coding Image">
-                    <div class="SoftwareColumn">
-                        <div><h3 id="PersonalSnippets">Personal Snippets</h3>
-                            <ul><li><a style="display: none;" href="GithubLink">My GitHub</a></li>
-                                <li><a style="display: none;" href="Programs">My Programs</a></li></ul></div>
-                        <div><h3 id="FrontEnd">Front End</a></h3>
-                            <ul><li><a href="ColorGame.html">HueHueHue Game!</a>
-                                <li><a style="display: none;" href="HTML">HTML</a></li>
-                                <li><a style="display: none;" href="CSS">CSS</a></li>
-                                <li><a style="display: none;" href="JavaScript">JavaScript</a></li></ul></div>
-                        <div><h3 id="BackEnd">Back End</a></h3>
-                            <ul><li><a style="display: none;" href="Java">Java</a></li>
-                                <li><a style="display: none;" href="CC++">C/C++</a></li></ul></div>
+                <!--Right Half: About Me Text-->
+                <div class="aboutMe container col-7" id="aboutMe">
+                    <h2 class="aboutMeTitle">Welcome to my portfolio!</h2>
+                    <p>My love for electronics started at the age of 7 when I would take apart radio controlled cars attempting to figure out how they worked. 
+                    My technical-minded motivation was nurtured by my adoptive parents who encouraged the 14 year old me to participate in the “College Now” program leading to a High School Diploma with honors and college credits. 
+                    With some patience I was able to return to my post-secondary studies and partake in a work-study scholarship with the Republic of Korea’s National Institute for International Education (TaLK division). 
+                    This wonderful opportunity allowed me to work towards earning my Bachelors of Science degree and travel the world while teaching under-privileged students English.</p>
+                    <p>Today I build electronics, code programs, and build websites as a hobby. 
+                    Although I have earned an ABET accredited Bachelors of Science degree in Computer Engineering Technology, my desire to learn and gain more skill with electronics and Computer Science hasn’t declined. 
+                    I’m currently a part of a Full-stack Development certificate course with Code-Louisville and am studying to take a GRE to pursue a Masters of Science.</p>
+                    <p>I’m dedicated to becoming a master of technology which interacts with the world and therefore welcome any opportunities to strengthen my skills, learn, and utilize my knowledge. </p>
                     </div>
             </div>
-            
-            <!--Projects Segment-->
-            <button class="collapsible color4">Projects</button>
-            <div class="ProjectsSegment grid_item color4">
-                <h2>Projects</h2>
-                <img class="ProfileImages" src="IMG\Hardware Diagnosis.jpg" alt="Diagnosis Image">
-                    <div class="ProjectsColumn">
-                        <ul><a href="Catena.html">Catena</a></ul>
-                        <ul><a style="display: none;" href="CARL">C.A.R.L</a></ul>
-                        <ul><a style="display: none;" href="ideas">More to come</a></ul>
-                    </div>
-            </div>
+        </div>
+
+<!--Projects Segment-->
+        <div class="secondSegment container-fluid">
+            <div class="row">
+                <!--Left Half: Project Summaries and links-->
+                <div class="projectSummaries col" id="projectSummaries">
+                    <ul>
+                        <li><h3 class="Catena" id="Catena">"Catena"</h3>
+                            <h5><a target="_blank" href="Catena.html"><i>Work In Progress</i></a></h5>
+                            <p>This simple project started out as a concept prototype for a team project when I was earning my Bachelors degree.</p>
+                            <p>As I got more and more involved in the project I was overcome with ideas I wanted to add to it. 
+                                I've collected a multitude of modules to add and it will become a communicative collection of interfaces that can communicate with the physical environment; 
+                                all of which will strengthen my embedded firmware coding skills.</p> 
+                            <p>I plan on eventually getting a custom PCB made where all the peripherals are integrated and accessable through a UX app.</p>
+                            <p><a target="_blank" href="Catena.html">Click here</a> if you'd to read my goals, thoughts, challenges, and implementation of my progress. 
+                                Feel free to contact me with any questions you might have!</p></li>
     
-            <!--Hardware Segment-->
-            <button class="collapsible color5">Hardware</button>
-            <div class="HardwareSegment grid_item color5">
-                <h2>Hardware</h2>
-                <img class="ProfileImages" src="IMG\Components on Board.jpg" alt="Hardware Image">
-                    <div class="HardwareColumn">
-                        <ul><a style="display: none;" href="PCBs">PCBs</a></ul>
-                        <ul><a style="display: none;" href="Power">Power</a></ul>
-                        <ul><a style="display: none;" href="Logic">Logic</a></ul>
-                        <ul><a style="display: none;" href="Schematics">Schematics</a></ul>
-                        <ul><a style="display: none;" href="Designs">Designs</a></ul>
-                        <ul><a style="display: none;" href="TestsnResults">Tests & Results</a></ul>
+                        <li><h3 class="learningProfile" id="learningProfile">1st Front End Attempt</h3>
+                            <h5><a target="_blank" href="TEMP/index.html"><i>Obsolete</i></a></h5>
+                            <p>The challenges I took with my first attempt at Front End Web Development was to: make it Responsive,
+                                Create Custom CSS, Utilize Responsive CSS, use Flexbox and Grid CSS, Establish Interactive Responses with JavaScript,
+                                Demonstrate Excellent Comment Utilization, use DevTools to Debug, and Implement Front End Form.</p>
+                                <p>The site is responsive to the screen size of the device viewing the page, which I implemented through css and JavaScript.
+                                    One of the responsiveness reatures I practiced with was responsive columns and grid layout. When its viewed in larger screens, it'll be a column layout.
+                                    medium screens will have a downward cascading grid that expands to improve readability. On small screens it becomes rows which can expand out to display the information.
+                                    The interactive portions of my landing page uses JavaScript to execute. I've created a more JavaScript/JQuery app which has more focus on interactivity. Follow the link to the 'Color Game' to try it out!
+                                    If you's like to see my excellent use of comments, check out my <a target="_blank" href="https://github.com/CalebProvost/CalebProvost.github.io">Github</a> source files.</p></li>
+
+                        <li><h3 class="projectTitle" id="ColorGame">JavaScript Color Game</h3>
+                            <h5><a target="_blank" href="ColorGame.html"><i>Work In Progress</i></a></h5>
+                            <p>Practicing JavaScript, or even implementing it on you webpage is a great way to sharpen your skills with it.
+                                But why not create something you'll want to return to and even challenge your friends?
+                                <p>The challenge of this game is to spot the cell which has a different shade than the rest, upon selecting the correct one, it'll change spots and decrease the difference in its shade from the others. Eventually you'll get to a point where the random cell is equal to the others, at which point, YOU WIN!
+                                    Go ahead and give my <a target="_blank" href="ColorGame.html"><i>Color Game</i></a> a try!</p></li>
+
+                        <li><h3 class="projectTitle" id="uvLamp">Nail UV Gel Curing Lamp</h3>
+                            <h5><i>Not Yet Started</i></h5>
+                            <p>My partner has switched to painting her nails with a gel based nail polish.
+                                I have yet to get started on this project, but I plan on making her a custom UV light curing lamp with a timer built in. </p>
+                            <p>Once I get a required/desired list from her, I'll start working on it. <a target="_blank">This link</a> will be active when the project has started.</p></li>
+
+                    </ul>
+                </div>
+
+                <!--Right Half: Photo Collage/Masonry Card Grid of Projects-->
+                <div class="projectPhotos col-7 container-fluid text-center">
+                    <div class="stickyContainer">
+                        <script type="text/javascript">getRandomImage(random_images_array);</script>
+                        <img src="IMG/Catena Photos/20190407_223743.jpg" alt="Testing BlackBerry-Q10 Keyboard with BeagleBone Black">
+                        <img src="IMG/FrontEnd-Learning/Desktop Response.png" alt="Desktop Response of 1st Webpage">
+                        <img src="IMG/ColorGame/ColorGame on Easy.png" alt="JavaScript Color Game on Easy">
+                        <img src="IMG/Catena Photos/20190529_122503.jpg" alt="Diagnostics App">
+                        <img src="IMG/Catena Photos/20190522_163301.jpg" alt="Testing Voltage Divided ADC Circuit">
+                        <img src="IMG/FrontEnd-Learning/Mobile Response.png" alt="Mobile Response of 1st Webpage">
+                        <img src="IMG/FrontEnd-Learning/Tablet Response.png" alt="Tablet Response of 1st Webpage">
+                        <img src="IMG/Catena Photos/20190606_115448.jpg" alt="3D Printed Case">
+                        <img src="IMG/FrontEnd-Learning/Mobile Response Expanded.png" alt="Expanded Mobile Response of 1st Webpage">
                     </div>
+                </div>
             </div>
         </div>
-    </div>
 
-    <!--Forum segment for visitors to leave a message on page or directly to me-->
-    <fieldset style="display: none;" class="feedbackForum color6">
-        <forum action="index.html" method="get">
-            
-            <label for="comment_purpose">
-                <input type="radio" checked id="comment_purpose" name="forumRadio" onclick="HideEmail()">
-                Leave a public comment
-                </label><br>
+<!--Contact Me Segment-->
+        <div class="thirdSegment container-fluid">
+            <!-- <div class="row"> --><div>
+                <!--Left Half: Contact Forum-->
+                <div class="contactMe" id="contactMe">
+                    <h2>Have a question for me? Want to know my availability?</h2>
+                    <h3>Feel free to contact me!</h3>
+                </div>
 
-            <label for="message_purpose">
-                <input type="radio" id="message_purpose" name="forumRadio" onclick="ShowEmail()">
-                Send a private message
-                </label><br>
+                <!-- Contact Forum -->
+                <!-- <div class="contactMeForum col" id="contactMeForum">
+                    <fieldset class="feedbackForum">
+                        <forum action="index.html" method="post">
+                            <label for="comment_purpose">
+                                <input type="radio" checked id="comment_purpose" name="forumRadio" onclick="HideEmail()">
+                                Leave a public comment
+                            </label><br>
+                    
+                            <label for="message_purpose">
+                                <input type="radio" id="message_purpose" name="forumRadio" onclick="ShowEmail()">
+                                Send a private message
+                            </label><br>
+                        </forum>
+                    
+                        <form>
+                            <div class="visitorName">
+                                <label for="name" class="forumInput">Name/Alias: </label>
+                                <input type="text" id="name" name="visitors_name" required><br>
+                            </div>
+                    
+                            <div class="emailBox hidden" id="emailAddress">
+                                <label for="emailAddress">Email: </label>
+                                <input id="emailAddress" type="email" placeholder="my@email.com">
+                            </div>
+                    
+                            <div class="messageBox">
+                                <textarea id="message" required placeholder="Send me a message or leave me a comment!"></textarea>
+                            </div>
+                    
+                            <-- template for when backend is ready --
+                            <!-- <input type="submit" value="Submit"> --
+                    
+                            <!-- presentation example until its ready --
+                            <button type="button" id="submitButton" onclick="displayComment()">Submit</button>
+                        </form>
+                        <hr>
+                        <h3>Feedback:</h3>
+                        <p>Note: I have yet to set a backend response, all displays are temporary and will be discarded upon refresh.</p>
+                        <div id="comments"></div>
+                    </fieldset>
+                </div> -->
         
-            <label for="name" class="forumInput">Name/Alias: </label>
-            <input type="text" id="name" name="visitors_name" required><br>
-        </forum>
-
-        <form>
-            <div class="emailBox hidden" id="emailAddress" >
-                <label for="emailAddress">Email: </label>
-                <input id="emailAddress" type="email" placeholder="my@email.com">
+                <!--Right Half: Social Media Links-->
+                <!-- <div class="socialMedia col"> -->
+                    <div class="socialMedia">
+                    <a target="_blank" href="https://github.com/CalebProvost"><img src="IMG/GitHub-Mark-Light-120px-plus.png" alt="Github Icon"></a>
+                    <a target="_blank" href="https://www.linkedin.com/in/CalebProvost/"><img src="IMG/linkedin-icon.png" alt="LinkedIn Icon"></a>
+                    <address><a target="_blank" href="mailto:drahunix@yahoo.com"><img src="IMG/email icon.png" alt="Another Icon"></a></address>
+                </div>
             </div>
+        </div>
 
-            <div class="messageBox">
-                <textarea id="message" required placeholder="Send me a message or leave me a comment!"></textarea>
-            </div>
 
-            <input type="submit" value="Submit">
-        </form>
-    </fieldset>
-
-    <!--Footer to Contain Personal Culture/Interests-->
-    <footer class="MainFooter color1">
-        <li style="display: none;" ><a href="Blog">My Adventures</a></li>
-        <li style="display: none;" ><a href="Interests">Shared Interests</a></li>
-        <li style="display: none;" ><a href="Learnage">Lifelong Learner</a></li>
-        <li><a href="https://www.linkedin.com/in/calebprovost/" class="linkedin">My LinkedIn</a></li>
-    </footer>
-    <script src="JS/scripts.js"></script>
-</body>
+<!--Load Page Scripts-->
+        <script src="JS/scripts.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    </body>
 </html>

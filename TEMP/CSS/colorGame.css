@@ -1,0 +1,68 @@
+body {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
+
+header {
+    background-color: #fff;
+    width: 100%;
+    align-self: flex-start;
+    position: fixed;
+    top: 0px;
+}
+
+.headWrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap-reverse;
+    width: 90%;
+    margin: 0 auto;
+    justify-content: space-around;
+}
+
+.gameSegmentWrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.gameMenu forum {
+    display: flex;
+    flex-direction: row;
+}
+
+.shell {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: auto;
+}
+
+#autoTable tr td{
+    height: 4vh;
+    width: 4vh;
+}
+
+table {
+    border-collapse: collapse;
+}  
+
+footer {
+    background-color: #fff;
+    align-self: flex-end;
+    width: 100%;
+    position: fixed;
+    bottom: 0px;
+}
+
+.footWrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 80%;
+    margin: 0 auto;
+    justify-content: space-around;
+}
