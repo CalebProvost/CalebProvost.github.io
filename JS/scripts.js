@@ -18,11 +18,19 @@ function HideEmail() {
 /**************************************************************************/
 /************************* Interactive Menu Icon **************************/
 /**************************************************************************/
-function menuAnimation() {
+function iconAnimation() {
     if(document.getElementById("MenuIcon").className == "collapseicon")
        document.getElementById("MenuIcon").className = "icon";
     else
        document.getElementById("MenuIcon").className = "collapseicon";
+}
+
+function menuAnimation() {
+    $(document).on('click', '.navbar-collapse.show', function (e) {
+        if ($(e.target).is('a')) {
+            $(this).collapse('hide');
+        }
+    });
 }
 
 /**************************************************************************/

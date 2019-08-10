@@ -13,31 +13,35 @@
         <div class="citeNav container">
             <nav class="navbar navbar-expand-sm fixed-top">
                 <a class="navbar-brand text-white">Caleb Provost</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar">
-                    <span class="navbar-toggler-icon"></span>
+                <button class="navbar-toggler iconShell" type="button" data-toggle="collapse" data-target="#navbar" onclick="iconAnimation();">
+                    <span id="MenuIcon" class="icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbar">
                     <ul class="navbar-nav nav-pills ml-auto">
-                        <li class="nav-item ml-auto">
-                            <a class="nav-link nav-link-color btn-dark" href="#aboutMe">About Me</a>
+                        <li class="nav-item">
+                            <a class="nav-link nav-link-color btn-dark" href="#aboutMe" onclick="menuAnimation();">About Me</a>
                         </li>
-                        <li class="nav-item ml-auto">
-                            <!--When projects are added, use drowndown version-->
+                        
+                        <!--Non-dropdown version-->
+                        <!-- <li class="nav-item">
                             <a class="nav-link nav-link-color btn-dark" href="#projectSummaries">My Projects</a>
-                            <!--Dropdown Version-->
-                            <!-- <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
-                                    aria-expanded="false">My Projects</a>
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="#projectOne">Project One</a>
-                                    <a class="dropdown-item" href="#projectTwo">Project Two</a>
-                                    <div role="separator" class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="#projectThree">Project Three</a>
-                                </div>
-                            </li> -->
+                        </li> -->
+
+                        <!--Dropdown Version-->
+                        <li class="nav-item dropdown btn-dark">
+                            <a class="nav-link nav-link-color dropdown-toggle" data-toggle="dropdown" href="#" role="button"
+                                aria-haspopup="true" aria-expanded="false">My Projects</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="#Catena" onclick="menuAnimation();">Catena</a>
+                                <a class="dropdown-item" href="#learningProfile" onclick="menuAnimation();">1st Front End</a>
+                                <!-- <div role="separator" class="dropdown-divider"></div> -->
+                                <a class="dropdown-item" href="#ColorGame" onclick="menuAnimation();">Color Game</a>
+                                <a class="dropdown-item" href="#uvLamp" onclick="menuAnimation();">UV Curing Lamp</a>
+                            </div>
                         </li>
-                        <li class="nav-item ml-auto">
-                                <a class="nav-link nav-link-color btn-dark" href="#contactMe">Contact Me</a>
+
+                        <li class="nav-item">
+                            <a class="nav-link nav-link-color btn-dark" href="#contactMe" onclick="menuAnimation();">Contact Me</a>
                         </li>
                     </ul>
                 </div>
@@ -55,7 +59,7 @@
                 </div>
         
                 <!--Right Half: About Me Text-->
-                <div class="aboutMe container col-7" id="aboutMe">
+                <div class="aboutMe col-md-7" id="aboutMe">
                     <h2 class="aboutMeTitle">Welcome to my portfolio!</h2>
                     <p>My love for electronics started at the age of 7. I would take apart radio-controlled cars and attempt to figure out how they worked. 
                         By 14 years old, I had built my first computer, was a part of my school's electronics club, and was a participant of the College Now program offered by my High School. 
@@ -73,7 +77,7 @@
         <div class="secondSegment container-fluid">
             <div class="row">
                 <!--Left Half: Project Summaries and links-->
-                <div class="projectSummaries col" id="projectSummaries">
+                <div class="projectSummaries col-md" id="projectSummaries">
                     <ul>
                         <li><h3 class="Catena" id="Catena">"Catena"</h3>
                             <h5><a target="_blank" href="Catena.html"><i>Work In Progress</i></a></h5>
@@ -86,7 +90,7 @@
                                 Feel free to contact me with any questions you might have!</p></li>
     
                         <li><h3 class="learningProfile" id="learningProfile">1st Front End Attempt</h3>
-                            <h5><a target="_blank" href="../TEMP/index.html"><i>Obsolete</i></a></h5>
+                            <h5><a target="_blank" href="TEMP/index.html"><i>Obsolete</i></a></h5>
                             <p>The challenges I took with my first attempt at Front End Web Development was to: make it Responsive,
                                 Create Custom CSS, Utilize Responsive CSS, use Flexbox and Grid CSS, Establish Interactive Responses with JavaScript,
                                 Demonstrate Excellent Comment Utilization, use DevTools to Debug, and Implement Front End Form.</p>
@@ -113,9 +117,9 @@
                 </div>
 
                 <!--Right Half: Photo Collage/Masonry Card Grid of Projects-->
-                <div class="projectPhotos col-7 container-fluid text-center">
+                <div class="projectPhotos col-md-7 container-fluid text-center">
                     <div class="stickyContainer">
-                        <script type="text/javascript">getRandomImage(random_images_array);</script>
+                        <!-- <script type="text/javascript">getRandomImage(random_images_array);</script> -->
                         <img src="IMG/Catena Photos/20190407_223743.jpg" alt="Testing BlackBerry-Q10 Keyboard with BeagleBone Black">
                         <img src="IMG/FrontEnd-Learning/Desktop Response.png" alt="Desktop Response of 1st Webpage">
                         <img src="IMG/ColorGame/ColorGame on Easy.png" alt="JavaScript Color Game on Easy">
