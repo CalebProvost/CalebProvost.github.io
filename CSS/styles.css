@@ -134,6 +134,39 @@ img {
     height: auto;
 }
 
+.SmallDeviceMessage {
+    display: none;
+}
+
+.collapsible {
+    display: none;
+}
+
+div#emailAddress {
+    display: none;
+}
+
+/***************************************************************/
+/****** Adjust Anchor Tags to Compensate for Header Offset *****/
+/***************************************************************/
+.aboutMe, .Catena, 
+.projectSummaries, 
+.learningProfile, 
+.ColorGame, .uvLamp, 
+.contactMe {
+position: relative;
+}
+
+.aboutMe a, .Catena>a, 
+.projectSummaries>a, 
+.learningProfile>a, 
+.ColorGame>a, .uvLamp>a, 
+.contactMe>a {
+position: absolute;
+left: 0px;
+top: -60px;
+}
+
 /*//////////////////////////////////////////////////////////////////////////////////////////////*/
 /*///////////////////////////////////// Anamated Styles ////////////////////////////////////////*/
 /*//////////////////////////////////////////////////////////////////////////////////////////////*/
@@ -282,5 +315,118 @@ img {
 
     nav.navbar {
         margin: auto 2.5%;
+    }
+}
+
+/************************************************************************************************/
+/*Screens too small to view will have styles cleared and message on page to be viewed over 400px*/
+/************************************************************************************************/
+
+@media(max-width: 200px) {
+    * , .color2 {
+        background-color: white;
+    }
+
+    .SmallDeviceMessage {
+        display: inline-block;
+        text-align: center;
+        background-color: white;
+        font-size: 20px;
+    }
+
+    .MainHeader, .container, .HeadNav, 
+    .HeadNav li, .MainFooter, li, 
+    main, h1, a, img, .feedbackForum{
+        all: unset;
+        display: none;
+    }
+}
+
+
+/*//////////////////////////////////////////////////////////////////////////////////////////////*/
+/*////////////////////////////// Media Queries for Catena Page /////////////////////////////////*/
+/*//////////////////////////////////////////////////////////////////////////////////////////////*/
+
+/************************************************************************************************/
+/*Small Screens / Handheld Screens*/
+/************************************************************************************************/
+
+@media(max-width: 720px){
+    .MainContent {
+        width: 100%;
+        height: 100%;
+        margin: 0 auto;
+    }
+
+    .SoftwareSegment,
+    .ProjectsSegment,
+    .HardwareSegment {
+        display: flex;
+        flex-grow: 1;
+        align-items: center;
+    }
+
+    .collapsible {
+        display: block;
+        color: white;
+        cursor: pointer;
+        padding: 18px;
+        width: 100%;
+        border: none;
+        text-align: center;
+        outline: none;
+        font-size: 15px;
+    }
+    
+    .collapsible:after {
+        content: '\002B';
+        font-weight: bold;
+        float: left;
+        margin-left: 5px;
+    }
+
+    .SoftwareSegment,
+    .ProjectsSegment,
+    .HardwareSegment {
+        padding: 0 18px;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.2s ease-out;
+    }
+        
+    .active:after {
+        content: "\2212";
+    }
+
+    .SoftwareSegment h2,
+    .ProjectsSegment h2,
+    .HardwareSegment h2 {
+        display: none;
+    }
+}
+
+
+
+/************************************************************************************************/
+/*Screens too small to view will have styles cleared and message on page to be viewed over 400px*/
+/************************************************************************************************/
+
+@media(max-width: 200px) {
+    * , .color2 {
+        background-color: white;
+    }
+
+    .SmallDeviceMessage {
+        display: inline-block;
+        text-align: center;
+        background-color: white;
+        font-size: 20px;
+    }
+
+    .MainHeader, .container, .HeadNav, 
+    .HeadNav li, .MainFooter, li, 
+    main, h1, a, img{
+        all: unset;
+        display: none;
     }
 }

@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Catena Project</title>
-    <link rel="stylesheet" href="CSS/normalize.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="CSS/styles.css">
 </head>
 
-<body class="color2">
+<body data-spy="scroll" data-target="#navbar" data-offset="150">
     <!--Message for small screens-->
     <strong>
         <div class="SmallDeviceMessage">
@@ -21,45 +21,65 @@
 
     <!--Top Navagation Segment
         Collapsible Menu-->
-    <header class="MainHeader color1">
-        <!--Pre-flexbox attempt-->
-        <!--<div class="container clearfix">-->
-        <!--Flexbox attempt-->
-        <div class="HeaderWrapper">
-            <h1 class="SiteTitle">Project "Catena" by Caleb Provost</h1>
-            <ul class="HeadNav">
-                <li><a href="index.html">Home Page</a></li>
-                <li><a href="index.html#Software">Software</a></li>
-                <div class="iconShell">
-                    <div id="MenuIcon" class="icon" onclick="menuAnimation()"></div>
+    <header class="MainHeader">
+        <div class="citeNav container">
+            <nav class="navbar navbar-expand-sm fixed-top">
+                <a class="navbar-brand text-white">Caleb Provost</a>
+                <button class="navbar-toggler iconShell" type="button" data-toggle="collapse" data-target="#navbar" onclick="iconAnimation();">
+                    <span id="MenuIcon" class="icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbar">
+                    <ul class="navbar-nav nav-pills ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link nav-link-color btn-dark" href="#aboutMe" onclick="menuAnimation(); iconAnimation();">About Me</a>
+                        </li>
+
+                        <!--Dropdown Version-->
+                        <li class="nav-item dropdown btn-dark">
+                            <a class="nav-link nav-link-color dropdown-toggle" data-toggle="dropdown" href="#" role="button"
+                                aria-haspopup="true" aria-expanded="false">My Projects</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="#projectConcept" onclick="menuAnimation(); iconAnimation();">Project Concept</a>
+                                <a class="dropdown-item" href="#Goals" onclick="menuAnimation(); iconAnimation();">Goals</a>
+                                <!-- <div role="separator" class="dropdown-divider"></div> -->
+                                <a class="dropdown-item" href="#wishList" onclick="menuAnimation(); iconAnimation();">Project Wish List</a>
+                                <a class="dropdown-item" href="#startingPoint" onclick="menuAnimation(); iconAnimation();">Starting Point Decisions</a>
+                                <a class="dropdown-item" href="#beginning" onclick="menuAnimation(); iconAnimation();">And We’re Off</a>
+                            </div>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link nav-link-color btn-dark" href="#contactMe" onclick="menuAnimation(); iconAnimation();">Contact Me</a>
+                        </li>
+                    </ul>
                 </div>
-            </ul>
+            </nav>
         </div>
     </header>
 
-    <div class="MainContent color4">
+    <div class="MainContent">
         <div class="container">
 
             <div class="centerContent">
                 <div class="pageNav">
-                    <li class="pageJumpLinks"><a href="catena.html#projectConcept">
+                    <li class="pageJumpLinks"><a href="#projectConcept">
                             Project Concept
                         </a></li>
-                    <li class="pageJumpLinks"><a href="catena.html#Goals">
+                    <li class="pageJumpLinks"><a href="#Goals">
                             Goals
                         </a></li>
-                    <li class="pageJumpLinks"><a href="catena.html#wishList">
+                    <li class="pageJumpLinks"><a href="#wishList">
                             Project Wish List
                         </a></li>
-                    <li class="pageJumpLinks"><a href="catena.html#startingPoint">
+                    <li class="pageJumpLinks"><a href="#startingPoint">
                             Starting Point Decisions
                         </a></li>
-                    <li class="pageJumpLinks"><a href="catena.html#beginning">
+                    <li class="pageJumpLinks"><a href="#beginning">
                             And We’re Off
                         </a></li>
                 </div>
 
-                <h2 style="color: white;">Please note that I have yet added the sources of information, and those who’ve
+                <h2>Please note that I have yet added the sources of information, and those who’ve
                     inspired segments of
                     my work. I will expand upon this blog styled project to include this information when I get the
                     chance.</h2>
@@ -191,7 +211,7 @@
         </div>
 
         <!--Forum segment for visitors to leave a message on page or directly to me-->
-        <fieldset class="feedbackForum color6">
+        <fieldset class="feedbackForum">
             <forum action="index.html" method="post">
                 <label for="comment_purpose">
                     <input type="radio" checked id="comment_purpose" name="forumRadio" onclick="HideEmail()">
@@ -234,13 +254,24 @@
     </div>
 
     <!--Footer to Contain Personal Culture/Interests-->
-    <footer class="MainFooter color1">
+    <footer class="MainFooter">
         <li style="display: none;"><a href="Blog">My Adventures</a></li>
         <li style="display: none;"><a href="Interests">Shared Interests</a></li>
         <li style="display: none;"><a href="Learnage">Lifelong Learner</a></li>
         <li><a href="https://www.linkedin.com/in/calebprovost/" class="linkedin">My LinkedIn</a></li>
     </footer>
 
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-145380142-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-145380142-1');
+    </script>
     <script src="JS/scripts.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 
