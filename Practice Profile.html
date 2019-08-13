@@ -1,135 +1,284 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Caleb Provost's Profile</title>
-    <link rel="stylesheet" href="CSS/normalize.css">
+    <title>Catena Project</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="CSS/styles.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 </head>
-<body class="color2">
+
+<body data-spy="scroll" data-target="#navbar" data-offset="150">
     <!--Message for small screens-->
-    <div class="SmallDeviceMessage">congratulations!!!!!
-            <br>You found an easteregg!</br>
-            <br>How'd you get here and why?</br></div>
+    <strong>
+        <div class="SmallDeviceMessage">
+            This webpage is best experienced with a viewing width above 400 pixels.
+            <br>Visit anytime with adequate screen resolution!</br>
+        </div>
+    </strong>
 
     <!--Top Navagation Segment
         Collapsible Menu-->
-    <header class="MainHeader color1">
+    <header class="MainHeader">
+        <div class="citeNav container">
+            <nav class="navbar navbar-expand-sm fixed-top">
+                <a class="navbar-brand text-white">Caleb Provost</a>
+                <button class="navbar-toggler iconShell" type="button" data-toggle="collapse" data-target="#navbar" onclick="iconAnimation();">
+                    <span id="MenuIcon" class="icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbar">
+                    <ul class="navbar-nav nav-pills ml-auto">
+                        <!--Dropdown Version-->
+                        <li class="nav-item dropdown btn-dark">
+                            <a class="nav-link nav-link-color dropdown-toggle" data-toggle="dropdown" href="#" role="button"
+                                aria-haspopup="true" aria-expanded="false">Jump To:</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="#projectConcept" onclick="menuAnimation(); iconAnimation();">Project Concept</a>
+                                <a class="dropdown-item" href="#Goals" onclick="menuAnimation(); iconAnimation();">Goals</a>
+                                <!-- <div role="separator" class="dropdown-divider"></div> -->
+                                <a class="dropdown-item" href="#wishList" onclick="menuAnimation(); iconAnimation();">Project Wish List</a>
+                                <a class="dropdown-item" href="#startingPoint" onclick="menuAnimation(); iconAnimation();">Starting Point Decisions</a>
+                                <a class="dropdown-item" href="#beginning" onclick="menuAnimation(); iconAnimation();">And We’re Off</a>
+                            </div>
+                        </li>
 
-        <!--Flexbox-->
-        <div class="HeaderWrapper">
-            <h1 class="SiteTitle">Caleb Provost</h1>
-            <ul class="HeadNav">
-                <li style="display: none;" class="navLinks"><a href="Practice Profile.html#Hardware">Hardware</a></li>
-                <li class="navLinks"><a href="Practice Profile.html#Projects">Projects</a></li>
-                <li style="display: none;" class="navLinks"><a href="Practice Profile.html#Software">Software</a></li>
-                <li style="display: none;" class="navLinks"><a href="index.html#PersonalSnippets">Personal Snippets</a></li>
-                <li class="navLinks"><a href="index.html#FrontEnd">Front End Dev</a></li>
-                <li style="display: none;" class="navLinks"><a href="index.html#BackEnd">Back End Dev</a></li>
-                <div class="iconShell">
-                    <div id="MenuIcon" class="icon" onclick="menuAnimation();"></div>
+                        <li class="nav-item">
+                            <a class="nav-link nav-link-color btn-dark" href="#contactMe" onclick="menuAnimation(); iconAnimation();">Contact Me</a>
+                        </li>
+                    </ul>
                 </div>
-            </ul>
+            </nav>
         </div>
     </header>
 
-        <!--Main Content Segment
-        Three Piece Sections Influenced by JavaScript
-        Place Personal Background Images to Meet Each Theme-->
-    <div class="MainContent color2">
-        
-        <div class="container grid-container">
-            <!--Software Segment-->
-            <button class="collapsible color3">Software</button>
-            <div class="SoftwareSegment grid_item color3">
-                <h2>Software</h2>
-                <img class="ProfileImages" src="IMG\Generic Code.jpg" alt="Coding Image">
-                    <div class="SoftwareColumn">
-                        <div><h3 id="PersonalSnippets">Personal Snippets</h3>
-                            <ul><li><a style="display: none;" href="GithubLink">My GitHub</a></li>
-                                <li><a style="display: none;" href="Programs">My Programs</a></li></ul></div>
-                        <div><h3 id="FrontEnd">Front End</a></h3>
-                            <ul><li><a href="ColorGame.html">HueHueHue Game!</a>
-                                <li><a style="display: none;" href="HTML">HTML</a></li>
-                                <li><a style="display: none;" href="CSS">CSS</a></li>
-                                <li><a style="display: none;" href="JavaScript">JavaScript</a></li></ul></div>
-                        <div><h3 id="BackEnd">Back End</a></h3>
-                            <ul><li><a style="display: none;" href="Java">Java</a></li>
-                                <li><a style="display: none;" href="CC++">C/C++</a></li></ul></div>
-                    </div>
-            </div>
-            
-            <!--Projects Segment-->
-            <button class="collapsible color4">Projects</button>
-            <div class="ProjectsSegment grid_item color4">
-                <h2>Projects</h2>
-                <img class="ProfileImages" src="IMG\Hardware Diagnosis.jpg" alt="Diagnosis Image">
-                    <div class="ProjectsColumn">
-                        <ul><a href="Catena.html">Catena</a></ul>
-                        <ul><a style="display: none;" href="CARL">C.A.R.L</a></ul>
-                        <ul><a style="display: none;" href="ideas">More to come</a></ul>
-                    </div>
-            </div>
-    
-            <!--Hardware Segment-->
-            <button class="collapsible color5">Hardware</button>
-            <div class="HardwareSegment grid_item color5">
-                <h2>Hardware</h2>
-                <img class="ProfileImages" src="IMG\Components on Board.jpg" alt="Hardware Image">
-                    <div class="HardwareColumn">
-                        <ul><a style="display: none;" href="PCBs">PCBs</a></ul>
-                        <ul><a style="display: none;" href="Power">Power</a></ul>
-                        <ul><a style="display: none;" href="Logic">Logic</a></ul>
-                        <ul><a style="display: none;" href="Schematics">Schematics</a></ul>
-                        <ul><a style="display: none;" href="Designs">Designs</a></ul>
-                        <ul><a style="display: none;" href="TestsnResults">Tests & Results</a></ul>
-                    </div>
+    <div class="MainContent">
+        <div class="container">
+
+            <div class="centerContent">
+                <div class="pageNav">
+                    <li class="pageJumpLinks"><a href="#projectConcept">
+                            Project Concept
+                        </a></li>
+                    <li class="pageJumpLinks"><a href="#Goals">
+                            Goals
+                        </a></li>
+                    <li class="pageJumpLinks"><a href="#wishList">
+                            Project Wish List
+                        </a></li>
+                    <li class="pageJumpLinks"><a href="#startingPoint">
+                            Starting Point Decisions
+                        </a></li>
+                    <li class="pageJumpLinks"><a href="#beginning">
+                            And We’re Off
+                        </a></li>
+                </div>
+
+                <h2>Please note that I have yet added the sources of information, and those who’ve
+                    inspired segments of
+                    my work. I will expand upon this blog styled project to include this information when I get the
+                    chance.</h2>
+
+                <h3 class="projectConcept"><a name="projectConcept"> </a>Project Concept</h3>
+                <p>Catena, a Latin derived word which Oxford Dictionary defines as "a connected series or chain." The
+                    name of this project is befitting of the device as it connects real-world physical puzzles to each
+                    other for a structured interactive experience.</p>
+
+                <h3 class="Goals"><a name="Goals"> </a>Goals</h3>
+                <p>My goal is to create a mobile device in which, modularly or otherwise, can interact with as many
+                    sensors as possible without compromising the simplicity of its use. I hope to someday see it in the
+                    "Escape Room" style interactive puzzle industry and contribute to the experience and expand upon the
+                    possibilities of puzzles.</p>
+
+                <h3 class="wishList"><a name="wishList"> </a>Project Wish List</h3>
+                <p> Ideally I’d be able to make a small handheld device which could house every feasible sensor known to
+                    man. That would be an accomplishment itself (especially for one person to do). So I know I’ll have
+                    to compromise on something along the way, but I’ll do my best to incorporate as many as possible and
+                    start eliminating when I come across limitations. So then, below are some things I’d like Catena to
+                    do.
+
+                    <br>Hardware wise, have:
+                    <li> Memory large enough to accommodate RTOS and UX apps.</li>
+                    <li> Mobility with enough power to accommodate around 2 hours of use (LiPo, or other?).</li>
+                    <li> Wireless network communications for customer and end user information backups.</li>
+                    <li> Light/color sensors (multiple spectrums) and emitters (laser sounds the most useful for
+                        puzzles).</li>
+                    <li> Temp sensors (internally for device safety) *struggling to think of safe ways a puzzle would
+                        incorporate heat differences to justify external temp sensors*.</li>
+                    <li> Pressure feedback (pressure switches maybe).</li>
+                    <li> Accelerometer (for movement as well as gravity sensor. Think angular positioning).</li>
+                    <li> Microphone or Piezo-electric sensors.</li>
+                    <li>1 Ghz or faster processor.</li>
+                    <li> Expandable memory, or internal large enough to accommodate hours of video and audio files.</li>
+                    <li> Speakers (not sure quality is necessary).</li>
+                    <li> Radio Frequency transmitter (NFC would work).</li>
+                    <li> DC motor(s). *small for vibration feedback or even inner-compartment lever*</li>
+                    <li> Keyboard (could be eliminated for digital replacement, however, I’m concerned the display will
+                        be masked too much).</li>
+                    <li> Case accessible buttons (like volume or laser on, etc).</li>
+                    <li> Handheld Display.</li>
+                    <li> Camera(s). </li>
+                    <li> GPS/WLAN? *not sure if I see this as necessary, unless it’s also marketed as a geocaching game
+                        device*</li>
+                    <li> Indicator LEDs.</li>
+                    <li> Magnetic sensors (Hall-effect) *could be used for cheaper puzzles by the customer*.</li>
+
+                    <br>Software:
+                    <li> Firmware to operate hardware.</li>
+                    <li>Customized OS to eliminate end user manipulation (modified Linux?).</li>
+                    <li> Diagnostics app for one source testing all hardware (potentially a hidden boot partition which
+                        loads directly to this as well).</li>
+                    <li> Server backend software.</li>
+                    <li> Customer story setup software. *guided mode and advance mode options*</li>
+                    <li> End user application (prompts at given times, tip request features [set with predetermined tips
+                        or pager feature for assistance], revisit clues, notes segment, etc). </li>
+                </p>
+
+                <h3 class="startingPoint"><a name="startingPoint"> </a>Starting Point Decisions</h3>
+                <p> Prototyping Board:<br>
+                    I’ve chosen to go with the BeagleBone Black Wireless (BBBW) as its embedded ARM SoC meets many
+                    features I wanted to have already, and has many resources which will allow for faster prototyping.
+                    With all the open ware and open licenses, I can continue onto creating my own custom board after as
+                    well. This means I have an added goal of designing a single board computer of my own which will
+                    incorporate all the hardware I want. <br>
+
+                    RTOS: <br>
+                    The BBBW has an RTOS Debian Linux already established for it. Linux is friendlier when it comes to
+                    modifying its OS features and making drivers (or so my research is suggesting). However, I have yet
+                    to use Linux for any development purposes. This will be a completely new experience for me. My goal
+                    with it would be to modify it to boot directly to the customer’s software and only have access to
+                    the OS through special "developer debug" access. <br>
+
+                    Screen/Keyboard: <br>
+                    I’ve found a smaller sized screen with capacitive touch which would make for an ideal mobile
+                    display, but it would be too small for a digital keyboard. But with some searching (BlackBerry
+                    Keyboard) I’ve come across some people’s (list them) work one the utilization of the BB’s Q10
+                    keyboard. I’d like to use it for my own project as well, this way I could incorporate some hardware
+                    keys to be pressed during boot to activate some hidden features, or even during the device use to
+                    prompt admin access. <br>
+
+                    Wireless Communications: <br>
+                    The BBBW already has a Bluetooth and WiFi module on it. This is helpful for faster prototyping and
+                    making software which will communicate with a server to export some data for statistics and other
+                    customer features, but it’s lacking wireless communication which can be used in conjunction with the
+                    physical environment. One of the first puzzles I want to demonstrate with the device is how it can
+                    determine which "block" or item is the correct one when it’s placed in the correct location ("choose
+                    wisely" kind of situation). To do this I was thinking I could use NFC as the physical puzzles would
+                    only require an NFC sticker to be placed under the surface to work. This would also allow the
+                    customer to create cheaper, reusable puzzles faster. <br>
+
+                    Battery: <br>
+                    It appears that the BBBW has pins to the PMIC which will allow for a 3.7v LiPo to directly connect
+                    to it. But when I looked into this further, it appears that direct connect to it was left off
+                    intentionally, and that it won’t operate the wireless when powered this way.
+                    For safety, and practice with the system’s ADCs (LBO/or BATT pin would make a good battery level
+                    sensor pin), I grabbed a power module from adafuit to use a DC/DC boost converter with UPS features
+                    to make it feel a bit more like a phone/tablet style device. I’d like to use the BBBW’s own PMIC to
+                    power the system via battery, so I’ll have to do more research into how to do so safely in a later
+                    date. For now I’ll use this module which I can reuse in other projects too. <br>
+
+                    <h3 class="beginning"><a name="beginning"> </a>And We’re Off – I will need to expand on this; currently an outline of what’s
+                        happened.</h3>
+                    <p> Accomplished so far: <br>
+                        GPIO Pins research, what is used on the board already by the modules already attached, what is
+                        available to use for keyboard and battery communication.<br>
+                        Find how to get the LCD into portrait mode and have it automatically boot into portrait mode.
+                        This took some learning on how the GUI works with Linux Oss (specifically X11 on debian).
+                        I researched and testing the built in WiFi module and learned how to set it up; still need to
+                        create a save state of the information to load upon boot.<br>
+                        What I have performed so far:
+                        <li>Coded the ADC in voltage reading, and battery % remaining calculations; </li>
+                        <li>Calculated and created the voltage divider circuit necessary for the battery in module to
+                            provide the correct voltage range; </li>
+                        <li>Inspected and researched which hardware pin-mux can be modified for IO operations; </li>
+                        <li>Designed, developed, and integrated the diagnosis application; </li>
+                        <li>Established how to modify core OS drivers to switch the screen into portrait mode for basic
+                            driver compliant LCD’s and created instructions for others to do so; </li>
+                        <li>Established and collected resources for making an adapter for mobile cell-phone keyboard
+                            (BlackBerry Q10 keyboard). </li>
+                        <li>Created bootup system modifications necessary to integrate a Matrix Keyboard into the OS
+                            applicable hardware; </li>
+                        <li>Established code necessary for wireless communications; </li>
+                        <li>Tested and verified each hardware module communicates with the OS appropriately – however
+                            not all at the same time so far; </li>
+                    </p>
             </div>
         </div>
+
+        <!--Forum segment for visitors to leave a message on page or directly to me-->
+        <fieldset class="feedbackForum">
+            <forum action="index.html" method="post">
+                <label for="comment_purpose">
+                    <input type="radio" checked id="comment_purpose" name="forumRadio" onclick="HideEmail()">
+                    Leave a public comment
+                </label><br>
+
+                <label for="message_purpose">
+                    <input type="radio" id="message_purpose" name="forumRadio" onclick="ShowEmail()">
+                    Send a private message
+                </label><br>
+            </forum>
+
+            <form>
+                <div class="visitorName">
+                        <label for="name" class="forumInput">Name/Alias: </label>
+                        <input type="text" id="name" name="visitors_name" required><br>
+                </div>
+
+                <div class="emailBox hidden" id="emailAddress">
+                    <label for="emailAddress">Email: </label>
+                    <input id="emailAddress" type="email" placeholder="my@email.com">
+                </div>
+
+                <div class="messageBox">
+                    <textarea id="message" required placeholder="Send me a message or leave me a comment!"></textarea>
+                </div>
+
+                <!-- template for when backend is ready -->
+                <!-- <input type="submit" value="Submit"> -->
+
+                <!-- presentation example until its ready -->
+                <button type="button" id="submitButton" onclick="displayComment()">Submit</button>
+            </form>
+            <hr>
+            <h3>Feedback:</h3>
+            <p>Note: I have yet to set a backend response, all displays are temporary and will be discarded upon refresh.</p>
+            <div id="comments"></div>
+        </fieldset>
+
     </div>
 
-    <!--Forum segment for visitors to leave a message on page or directly to me-->
-    <fieldset style="display: none;" class="feedbackForum color6">
-        <forum action="index.html" method="get">
-            
-            <label for="comment_purpose">
-                <input type="radio" checked id="comment_purpose" name="forumRadio" onclick="HideEmail()">
-                Leave a public comment
-                </label><br>
-
-            <label for="message_purpose">
-                <input type="radio" id="message_purpose" name="forumRadio" onclick="ShowEmail()">
-                Send a private message
-                </label><br>
+    <footer class="MainFooter">
+        <div class="contactMe"><a name="contactMe"> </a>
+                    <h2>Have a question for me? Want to know my availability?</h2>
+                    <h3>Feel free to contact me!</h3></div>
+        <div class="socialMedia">
+                    <a target="_blank" href="https://github.com/CalebProvost"><img src="IMG/GitHub-Mark-Light-120px-plus.png" alt="Github Icon"></a>
+                    <a target="_blank" href="https://www.linkedin.com/in/CalebProvost/"><img src="IMG/linkedin-icon.png" alt="LinkedIn Icon"></a>
+                    <a href="mailto:drahunix@yahoo.com" target="_top"><img src="IMG/email icon.png" alt="Another Icon"></a>
+                </div>
         
-            <label for="name" class="forumInput">Name/Alias: </label>
-            <input type="text" id="name" name="visitors_name" required><br>
-        </forum>
-
-        <form>
-            <div class="emailBox hidden" id="emailAddress" >
-                <label for="emailAddress">Email: </label>
-                <input id="emailAddress" type="email" placeholder="my@email.com">
-            </div>
-
-            <div class="messageBox">
-                <textarea id="message" required placeholder="Send me a message or leave me a comment!"></textarea>
-            </div>
-
-            <input type="submit" value="Submit">
-        </form>
-    </fieldset>
-
-    <!--Footer to Contain Personal Culture/Interests-->
-    <footer class="MainFooter color1">
-        <li style="display: none;" ><a href="Blog">My Adventures</a></li>
-        <li style="display: none;" ><a href="Interests">Shared Interests</a></li>
-        <li style="display: none;" ><a href="Learnage">Lifelong Learner</a></li>
-        <li><a href="https://www.linkedin.com/in/calebprovost/" class="linkedin">My LinkedIn</a></li>
+        <!--<li style="display: none;"><a href="Blog">My Adventures</a></li>
+        <li style="display: none;"><a href="Interests">Shared Interests</a></li>
+        <li style="display: none;"><a href="Learnage">Lifelong Learner</a></li>
+        <li><a href="https://www.linkedin.com/in/calebprovost/" class="linkedin">My LinkedIn</a></li>-->
     </footer>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-145380142-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-145380142-1');
+    </script>
     <script src="JS/scripts.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
 </body>
+
 </html>

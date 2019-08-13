@@ -6,11 +6,13 @@ body {
     position: relative;
     padding-top: 55px;
     color: white;
-    background-color: #212529;
+    /*background-color: #212529;*/
+    background-image: linear-gradient(#212529, #000000);
 }
 
 .navbar {
     background-color: #212529;
+    padding: 0.5rem 7.5%;
 }
 
 .nav-pills > li > a.active {
@@ -146,6 +148,10 @@ div#emailAddress {
     display: none;
 }
 
+.MainFooter {
+    text-align: center;
+}
+
 /***************************************************************/
 /****** Adjust Anchor Tags to Compensate for Header Offset *****/
 /***************************************************************/
@@ -153,7 +159,9 @@ div#emailAddress {
 .projectSummaries, 
 .learningProfile, 
 .ColorGame, .uvLamp, 
-.contactMe {
+.contactMe, .projectConcept,
+.Goals, .wishList, 
+.startingPoint, .beginning {
 position: relative;
 }
 
@@ -161,7 +169,9 @@ position: relative;
 .projectSummaries>a, 
 .learningProfile>a, 
 .ColorGame>a, .uvLamp>a, 
-.contactMe>a {
+.contactMe>a, .projectConcept>a,
+.Goals>a, .wishList>a, 
+.startingPoint>a, .beginning>a {
 position: absolute;
 left: 0px;
 top: -60px;
@@ -283,10 +293,6 @@ top: -60px;
     body {
         margin: 55px 7.5% auto 7.5%;
     }
-
-    nav.navbar {
-        margin: auto 7.5%;
-    }
 }
 
 /************************************************************************************************/
@@ -297,11 +303,6 @@ top: -60px;
     body {
         margin: 55px 5% auto 5%;
     }
-
-    nav.navbar {
-        margin: auto 5%;
-    }
-
 }
 
 /************************************************************************************************/
@@ -311,10 +312,6 @@ top: -60px;
 @media(max-width: 768px){
     body {
         margin: 55px 2.5% auto 2.5%;
-    }
-
-    nav.navbar {
-        margin: auto 2.5%;
     }
 }
 
