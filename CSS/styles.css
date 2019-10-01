@@ -165,7 +165,7 @@ div#emailAddress {
 position: relative;
 }
 
-.aboutMe a, .Catena>a, 
+.aboutMe>a, .Catena>a, 
 .projectSummaries>a, 
 .learningProfile>a, 
 .ColorGame>a, .uvLamp>a, 

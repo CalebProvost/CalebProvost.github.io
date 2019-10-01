@@ -1,0 +1,124 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>UVgel Cure Lamp</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="CSS/styles.css">
+</head>
+
+<body data-spy="scroll" data-target="#navbar" data-offset="150">
+    <!--Message for small screens-->
+    <strong>
+        <div class="SmallDeviceMessage">
+            This webpage is best experienced with a viewing width above 400 pixels.
+            <br>Visit anytime with adequate screen resolution!</br>
+        </div>
+    </strong>
+
+    <!--Top Navagation Segment
+        Collapsible Menu-->
+    <header class="MainHeader">
+        <div class="citeNav container">
+            <nav class="navbar navbar-expand-sm fixed-top">
+                <a class="navbar-brand text-white">UVgel Cure Lamp</a>
+                <button class="navbar-toggler iconShell" type="button" data-toggle="collapse" data-target="#navbar" onclick="iconAnimation();">
+                    <span id="MenuIcon" class="icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbar">
+                    <ul class="navbar-nav nav-pills ml-auto">
+                        <!--Dropdown Version-->
+                        <li class="nav-item dropdown btn-dark">
+                            <a class="nav-link nav-link-color dropdown-toggle" data-toggle="dropdown" href="#" role="button"
+                                aria-haspopup="true" aria-expanded="false">Jump To:</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="#projectConcept" onclick="menuAnimation(); iconAnimation();">Project Concept</a>
+                                <a class="dropdown-item" href="#Goals" onclick="menuAnimation(); iconAnimation();">Goals</a>
+                                <a class="dropdown-item" href="#startingPoint" onclick="menuAnimation(); iconAnimation();">Starting Point</a>
+                                <a class="dropdown-item" href="#beginning" onclick="menuAnimation(); iconAnimation();">And We’re Off</a>
+                            </div>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link nav-link-color btn-dark" href="#contactMe" onclick="menuAnimation(); iconAnimation();">Contact Me</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="MainContent">
+        <div class="container">
+            <div class="centerContent">
+                <div class="pageNav">
+                    <li class="pageJumpLinks"><a href="#projectConcept">
+                            Project Concept
+                        </a></li>
+                    <li class="pageJumpLinks"><a href="#Goals">
+                            Goals
+                        </a></li>
+                    <li class="pageJumpLinks"><a href="#startingPoint">
+                            Starting Point
+                        </a></li>
+                    <li class="pageJumpLinks"><a href="#beginning">
+                            And We’re Off
+                        </a></li>
+                </div>
+
+                <h2>Work in Progress</h2>
+                <p>Thank you for understanding</p>
+
+                <h3 class="projectConcept"><a name="projectConcept"> </a>Project Concept</h3>
+                <p>Gel nails take roughly a minute of concentrated UV light to cure. I plan on making a curing lamp with 
+					an adjustable timer.</p>
+
+                <h3 class="Goals"><a name="Goals"> </a>Goals</h3>
+                <p>Create a UV Lamp with a timer so the user knows when the curing is done. Create the circuits and 
+					housing myself. Use the smallest micro-controller possible. 3D print the enclosure with phone charger.</p>
+
+                <h3 class="startingPoint"><a name="startingPoint"> </a>Starting Point</h3>
+                <p> Prototyping:<br>
+                    I will create a the schematics and emulate the circuit before development. I will have to emulate an input state for the 
+					7 segment display. The 3D printing will have to wait until I have the circuit developed before I determine where to 
+					house them and how to design the enclosure.</p>
+
+				<h3 class="beginning"><a name="beginning"> </a>And We’re Off</h3>
+				<p> Accomplished so far: <br>
+					UV LEDs collected and a strip was tested with a chosen power supply.
+					Currently juggling several projects while testing if the ICs I have will work as I want.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="MainFooter">
+        <div class="contactMe"><a name="contactMe"> </a>
+                    <h2>Have a question for me? Want to know my availability?</h2>
+                    <h3>Feel free to contact me!</h3></div>
+        <div class="socialMedia">
+                    <a target="_blank" href="https://github.com/CalebProvost"><img src="IMG/GitHub-Mark-Light-120px-plus.png" alt="Github Icon"></a>
+                    <a target="_blank" href="https://www.linkedin.com/in/CalebProvost/"><img src="IMG/linkedin-icon.png" alt="LinkedIn Icon"></a>
+                    <a href="mailto:drahunix@yahoo.com" target="_top"><img src="IMG/email icon.png" alt="Another Icon"></a>
+                </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-145380142-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-145380142-1');
+    </script>
+    <script src="JS/scripts.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+</body>
+
+</html>
