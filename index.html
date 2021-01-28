@@ -9,45 +9,6 @@
         <link rel="stylesheet" href="CSS/styles.css">
     </head>
     <body data-spy="scroll" data-target="#navbar" data-offset="150">
-<!--Fixed Nav with Scroll Spy-->
-        <div class="citeNav container">
-            <nav class="navbar navbar-expand-sm fixed-top">
-                <a class="navbar-brand text-white">Caleb Provost</a>
-                <button class="navbar-toggler iconShell" type="button" data-toggle="collapse" data-target="#navbar" onclick="iconAnimation();">
-                    <span id="MenuIcon" class="icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbar">
-                    <ul class="navbar-nav nav-pills ml-auto">
-                        <li class="nav-item">
-                            <a class="nav-link nav-link-color btn-dark" href="#aboutMe" onclick="menuAnimation(); iconAnimation();">About Me</a>
-                        </li>
-                        
-                        <!--Non-dropdown version-->
-                        <!-- <li class="nav-item">
-                            <a class="nav-link nav-link-color btn-dark" href="#projectSummaries">My Projects</a>
-                        </li> -->
-
-                        <!--Dropdown Version-->
-                        <li class="nav-item dropdown btn-dark">
-                            <a class="nav-link nav-link-color dropdown-toggle" data-toggle="dropdown" href="#" role="button"
-                                aria-haspopup="true" aria-expanded="false">My Projects</a>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#Catena" onclick="menuAnimation(); iconAnimation();">Catena</a>
-                                <a class="dropdown-item" href="#learningProfile" onclick="menuAnimation(); iconAnimation();">1st Front End</a>
-                                <!-- <div role="separator" class="dropdown-divider"></div> -->
-                                <a class="dropdown-item" href="#ColorGame" onclick="menuAnimation(); iconAnimation();">Color Game</a>
-                                <a class="dropdown-item" href="#uvLamp" onclick="menuAnimation(); iconAnimation();">UV Curing Lamp</a>
-                            </div>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link nav-link-color btn-dark" href="#contactMe" onclick="menuAnimation(); iconAnimation();">Contact Me</a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-        </div>
-
 <!--About Me Segment-->
         <div class="firstSegment container-fluid mt-auto">
             <div class="row">
@@ -63,77 +24,13 @@
                     <a name="aboutMe"> </a>
                     <h2 class="aboutMeTitle">Welcome to my portfolio!</h2>
                     <p>My love for electronics started at the age of 7. I would take apart radio-controlled cars and attempt to figure out how they worked. 
-                        By 14 years old, I had built my first computer, was a part of my school's electronics club, and was a participant of the College Now program offered by my High School. 
-                        Because of my dedication and love for electronics, I obtained a High School Diploma with honors and college credits.</p>
+                        By 14 years old, I had built my first computer, was a part of my school's electronics club, and was a participant of the College Now program offered by my High School.</p>
                     <p>I continued my post-secondary studies by partaking in a work-study scholarship with the Republic of Korea's National Institute for International Education (TaLK division). 
                         This wonderful opportunity allowed me to work towards earning my Bachelor of Science Degree while traveling the world and teaching underprivileged, rural students English.</p>
-                    <p>Today, I work in Research and Development with Electrolux and am a Virtual Systems Engineer Intern with <a class="ole" target="_blank" href="https://www.ole.org">Open Learning Exchange</a>. 
-                        In my downtime I continue to use what I've learned through obtaining my ABET-accredited Bachelor of Science Degree in Computer Engineering Technology to build electronics, code, and make websites. 
-                        I’m currently in a Full-stack Development certificate course with Code-Louisville, and am studying to take a GRE so I can pursue a Master of Engineering Degree. 
+                    <p>Currently, I work as an Embedded Systems Software Engineer at Radio Sound, Inc. and remotely take Embedded Systems Engineering Masters degree courses at the University of Colorado Boulder. 
+                        In my downtime I continue to use what I've learned to make electronics for my own personal enjoyment and improvements. 
                         I’m dedicated to learning all things technology that interact with the world, and welcome any opportunity that allows me to strengthen my skills and use my acquired knowledge.</p>
                     </div>
-            </div>
-        </div>
-
-<!--Projects Segment-->
-        <div class="secondSegment container-fluid">
-            <div class="row">
-                <!--Left Half: Project Summaries and links-->
-                <div class="projectSummaries col-md">
-                    <a name="projectSummaries"> </a>
-                    <ul>
-                        <li><h3 class="projectTitle Catena"><a name="Catena"> </a>"Catena"</h3>
-                            <h5><a target="_blank" href="Catena.html"><i>Work In Progress</i></a></h5>
-                            <p>This project started out as a concept prototype for a team project when I was earning my Bachelors degree.</p>
-                            <p>As I got more and more involved in the project I was overcome with ideas I wanted to add to it. 
-                                I've collected a multitude of modules to add and it will become a communicative collection of interfaces that can communicate with the physical environment; 
-                                all of which will strengthen my embedded firmware coding skills.</p> 
-                            <p>I plan on eventually getting a custom PCB made where all the peripherals are integrated and accessable through a UX app.</p>
-                            <p><a target="_blank" href="Catena.html">Click here</a> if you'd to read my goals, thoughts, challenges, and implementation of my progress. 
-                                Feel free to contact me with any questions you might have!</p></li>
-    
-                        <li><h3 class="projectTitle learningProfile"><a name="learningProfile"> </a>1st Front End Attempt</h3>
-                            <h5><a target="_blank" href="../TEMP/index.html"><i>Obsolete</i></a></h5>
-                            <p>The challenges I took with my first attempt at Front End Web Development was to: make it Responsive,
-                                Create Custom CSS, Utilize Responsive CSS, use Flexbox and Grid CSS, Establish Interactive Responses with JavaScript,
-                                Demonstrate Excellent Comment Utilization, use DevTools to Debug, and Implement Front End Form.</p>
-                                <p>The site is responsive to the screen size of the device viewing the page, which I implemented through css and JavaScript.
-                                    One of the responsiveness reatures I practiced with was responsive columns and grid layout. When its viewed in larger screens, it'll be a column layout.
-                                    medium screens will have a downward cascading grid that expands to improve readability. On small screens it becomes rows which can expand out to display the information.
-                                    The interactive portions of my landing page uses JavaScript to execute. I've created a more JavaScript/JQuery app which has more focus on interactivity. Follow the link to the 'Color Game' to try it out!
-                                    If you's like to see my excellent use of comments, check out my <a target="_blank" href="https://github.com/CalebProvost/CalebProvost.github.io">Github</a> source files.</p></li>
-
-                        <li><h3 class="projectTitle ColorGame"><a name="ColorGame"> </a>JavaScript Color Game</h3>
-                            <h5><a target="_blank" href="ColorGame.html"><i>Work In Progress</i></a></h5>
-                            <p>Practicing JavaScript, or even implementing it on you webpage is a great way to sharpen your skills with it.
-                                But why not create something you'll want to return to and even challenge your friends?
-                                <p>The challenge of this game is to spot the cell which has a different shade than the rest, upon selecting the correct one, it'll change spots and decrease the difference in its shade from the others. Eventually you'll get to a point where the random cell is equal to the others, at which point, YOU WIN!
-                                    Go ahead and give my <a target="_blank" href="ColorGame.html"><i>Color Game</i></a> a try!</p></li>
-
-                        <li><h3 class="projectTitle uvLamp"><a name="uvLamp"> </a>Nail UV Gel Curing Lamp</h3>
-                            <h5><a target="_blank" href="UVLamp.html"><i>Work In Progress</i></a></h5>
-                            <p>My partner has switched to painting her nails with a gel based nail polish.
-                                I have yet to get started on this project, but I plan on making her a custom UV light curing lamp with a timer built in. </p>
-                            <p>Once I get a required/desired list from her, I'll start working on it. <a target="_blank">This link</a> will be active when the project has started.</p></li>
-
-                    </ul>
-                </div>
-
-                <!--Right Half: Photo Collage/Masonry Card Grid of Projects-->
-                <div class="projectPhotos col-md-7 container-fluid text-center">
-                    <div class="stickyContainer">
-                        <!-- <script type="text/javascript">getRandomImage(random_images_array);</script> -->
-                        <img src="IMG/Catena Photos/20190407_223743.jpg" alt="Testing BlackBerry-Q10 Keyboard with BeagleBone Black">
-                        <img src="IMG/FrontEnd-Learning/Desktop Response.png" alt="Desktop Response of 1st Webpage">
-                        <img src="IMG/ColorGame/ColorGame on Easy.png" alt="JavaScript Color Game on Easy">
-                        <img src="IMG/Catena Photos/20190522_163301.jpg" alt="Testing Voltage Divided ADC Circuit">
-                        <img src="IMG/FrontEnd-Learning/Mobile Response.png" alt="Mobile Response of 1st Webpage">
-                        <img src="IMG/FrontEnd-Learning/Tablet Response.png" alt="Tablet Response of 1st Webpage">
-                        <img src="IMG/Catena Photos/20190606_115448.jpg" alt="3D Printed Case">
-                        <img src="IMG/Catena Photos/20190529_122503.jpg" alt="Diagnostics App">
-                        <img src="IMG/FrontEnd-Learning/Mobile Response Expanded.png" alt="Expanded Mobile Response of 1st Webpage">
-                    </div>
-                </div>
             </div>
         </div>
 
@@ -146,50 +43,6 @@
                     <h3>Feel free to contact me!</h3>
                 </div>
 
-                <!-- Contact Forum -->
-                <!-- <div class="contactMeForum col" id="contactMeForum">
-                    <fieldset class="feedbackForum">
-                        <forum action="index.html" method="post">
-                            <label for="comment_purpose">
-                                <input type="radio" checked id="comment_purpose" name="forumRadio" onclick="HideEmail()">
-                                Leave a public comment
-                            </label><br>
-                    
-                            <label for="message_purpose">
-                                <input type="radio" id="message_purpose" name="forumRadio" onclick="ShowEmail()">
-                                Send a private message
-                            </label><br>
-                        </forum>
-                    
-                        <form>
-                            <div class="visitorName">
-                                <label for="name" class="forumInput">Name/Alias: </label>
-                                <input type="text" id="name" name="visitors_name" required><br>
-                            </div>
-                    
-                            <div class="emailBox hidden" id="emailAddress">
-                                <label for="emailAddress">Email: </label>
-                                <input id="emailAddress" type="email" placeholder="my@email.com">
-                            </div>
-                    
-                            <div class="messageBox">
-                                <textarea id="message" required placeholder="Send me a message or leave me a comment!"></textarea>
-                            </div>
-                    
-                            <-- template for when backend is ready --
-                            <!-- <input type="submit" value="Submit"> --
-                    
-                            <!-- presentation example until its ready --
-                            <button type="button" id="submitButton" onclick="displayComment()">Submit</button>
-                        </form>
-                        <hr>
-                        <h3>Feedback:</h3>
-                        <p>Note: I have yet to set a backend response, all displays are temporary and will be discarded upon refresh.</p>
-                        <div id="comments"></div>
-                    </fieldset>
-                </div> -->
-        
-                <!--Right Half: Social Media Links-->
                 <!-- <div class="socialMedia col"> -->
                     <div class="socialMedia">
                     <a target="_blank" href="https://github.com/CalebProvost"><img src="IMG/GitHub-Mark-Light-120px-plus.png" alt="Github Icon"></a>
@@ -198,7 +51,6 @@
                 </div>
             </div>
         </div>
-
 
 <!--Load Page Scripts-->
         <script src="JS/scripts.js"></script>
