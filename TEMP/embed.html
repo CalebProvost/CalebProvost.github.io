@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Crypto</title>
+        <style>
+          body {
+            background: #35363A;
+            margin: 0;
+          }
+
+          #backgroundImage {
+            border: none;
+            height: 100%;
+            pointer-events: none;
+            position: fixed;
+            top: 0;
+            visibility: hidden;
+            width: 100%;
+          }
+
+          [show-background-image] #backgroundImage {
+            visibility: visible;
+          }
+        </style>
+        <script src="https://crypto.com/price/static/widget/index.js"></script>
+    </head>
+    <body style="background-color: rgb(53, 54, 58);">
+        <div id="crypto-widget-CoinList" data-theme="dark" data-design="modern" data-coin-ids="651,10316,6090,166,8443,3602,2511,101,29,1"></div>
+    </body>
+</html>
